@@ -1,0 +1,53 @@
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>>
+<style>
+    body {
+        background-color: black;
+    }
+
+    #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+    }
+
+    .container {
+        font-weight: 900;
+        font-size: 100px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-variant: normal;
+        color: white;
+        text-align: center;
+
+        padding: 10px;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        width: fit-content;
+        margin: 0;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+</style>
+
+<div id="root"></div>
+<video autoplay muted loop id="myVideo" src="vid.mov">
+
+</video>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    const rootElement = document.getElementById('root')
+    const Message = props => <div>{props.children}</div>
+    const element = (
+        <div className="container">
+            <Message children="Mark was here."/>
+        </div>
+    )  
+
+    ReactDOM.render(element, rootElement)
+</script>
