@@ -1,43 +1,55 @@
-<style>
-    .text {
-        font-weight: 900;
-        font-size: 100px;
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-variant: normal;
-        color: black;
-        text-align: center;
+<html></html>
+    <style>
+        #video {
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
 
-        padding: 10px;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        width: fit-content;
-        margin: 0;
-        transform: translate(-50%, -50%);
-        position: absolute;
-    }
-</style>
+        .text {
+            font-weight: 900;
+            font-size: 100px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-variant: normal;
+            color: black;
+            text-align: center;
 
-<body>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+            padding: 10px;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            width: fit-content;
+            margin: 0;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+    </style>
 
-    <div id="root"></div>
+    <body>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-    <video autoplay id="myVideo" src="vid2.mp4"></video>
+        <div id="root"></div>
 
-    <script type="text/babel">
-        const rootElement = document.getElementById('root')
-        const Message = props => <div>{props.children}</div>
-        const element = (
-            <div className="text">
-                <Message children="Mark was here."/>
-            </div>
-        )  
+        <video id="video" autoplay muted>
+            <source type="video/mp4" src="vid2.mp4" />
+        </video>
 
-        ReactDOM.render(element, rootElement)
-    </script>
-</body>
+        <script type="text/babel">
+            const rootElement = document.getElementById('root')
+            const Message = props => <div>{props.children}</div>
+            const element = (
+                <div className="text">
+                    <Message children="Mark was here."/>
+                </div>
+            )  
+
+            ReactDOM.render(element, rootElement)
+        </script>
+    </body>
+</html>
