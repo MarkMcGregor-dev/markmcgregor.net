@@ -3,7 +3,12 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial;
@@ -30,20 +35,16 @@
         }
 
         .myVideo {
-            zoom: 1.5;
             z-index: -1;
             
-            transform: translate(-200px, -25px);
-
             min-width: 100%;
             min-height: 100%;
             
             position: fixed;
-            top: 0;
             bottom: 0;
             right: 0;
+            top: 0;
             left: 0;
-
             margin: auto;
         }
 
