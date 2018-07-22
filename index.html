@@ -1,55 +1,88 @@
-<html></html>
+<!DOCTYPE html>
+<html>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+<head>
     <style>
-        #video {
-            z-index: -1;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
+        body {
+            margin: 0;
+            font-family: Arial;
+            font-size: 17px;
+            background-color: black;
         }
 
         .text {
-            font-weight: 900;
-            font-size: 100px;
             font-family: 'Montserrat';
-            font-style: normal;
-            font-variant: normal;
+            font-weight: 700;
+            font-size: 75px;
             color: black;
-            text-align: center;
 
-            padding: 10px;
-            top: 50%;
-            left: 50%;
-            margin-right: -50%;
             width: fit-content;
-            margin: 0;
-            transform: translate(-50%, -50%);
+            height: fit-content;
+
             position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+
+            margin: auto;
+        }
+
+        .myVideo {
+            zoom: 1.5;
+            z-index: -1;
+            
+            transform: translate(-200px, -25px);
+
+            min-width: 100%;
+            min-height: 100%;
+            
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+
+            margin: auto;
+        }
+
+        .button {
+            z-index: 1;
+            font-size: 30px;
+            color: white;
+
+            width: fit-content;
+            height: fit-content;
+
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+
+            margin: auto;
         }
     </style>
+</head>
 
-    <body>
-        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<body>
+    <a style="text-decoration:none" id="button" class="button" onclick="runVideo()" href="#">
+        <div ng-href="">What's this?</div>
+    </a>
 
-        <div id="root"></div>
+    <script>
+        function runVideo() {
+            document.getElementById('video').play();
+            document.getElementById('button').style.display = "none";
+        }
+    </script>
 
-        <video id="video" autoplay muted>
-            <source type="video/mp4" src="vid2.mp4" />
-        </video>
+    <video class="myVideo" id="video">
+        <source src="vid.mp4" type="video/mp4"> Your browser does not support HTML5 video.
+    </video>
 
-        <script type="text/babel">
-            const rootElement = document.getElementById('root')
-            const Message = props => <div>{props.children}</div>
-            const element = (
-                <div className="text">
-                    <Message children="Mark was here."/>
-                </div>
-            )  
+    <div class="text">Mark was here.</div>
+</body>
 
-            ReactDOM.render(element, rootElement)
-        </script>
-    </body>
 </html>
