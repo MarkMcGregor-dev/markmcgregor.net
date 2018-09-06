@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Permanent+Marker" rel="stylesheet">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,16 +10,12 @@
         }
 
         body {
-            margin: 0;
-            font-family: Arial;
-            font-size: 17px;
-            background-color: black;
+            background-color: white;
         }
 
-        .text {
-            font-family: 'Montserrat';
-            font-weight: 700;
-            font-size: 75px;
+        .title {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 5vw;
             color: black;
 
             width: fit-content;
@@ -32,59 +28,59 @@
             left: 0;
 
             margin: auto;
+            text-align: center;
         }
 
-        .myVideo {
-            z-index: -1;
-            
-            min-width: 100%;
-            min-height: 100%;
-            
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            top: 0;
-            left: 0;
-            margin: auto;
-        }
-
-        .button {
-            z-index: 1;
-            color: white;
-            text-decoration: none;
-            background-color: black;
-
-            width: fit-content;
-            height: fit-content;
+        .paragraph {
+            font-family: 'Pacifico', cursive;
+            font-weight: 250px;
+            font-size: 3vw;
+            color: black;
 
             position: absolute;
+            width: fit-content;
+            height: fit-content;
+            top: 55%;
+            left: 0;
+            right: 0;
+
+            margin: auto;
+            text-align: center;
+        }
+
+        .background {
+            position: fixed;
             top: 0;
             bottom: 0;
             right: 0;
             left: 0;
+            padding: 0;
 
-            margin: auto;
+            color: white;
+        }
+
+        .video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            transform: translateX(-50%) translateY(-50%);
         }
     </style>
 </head>
 
 <body>
-    <a id="button" class="button" onclick="runVideo()" href="#">
-        <img width="100px" src="dab.png" />
-    </a>
-
-    <script>
-        function runVideo() {
-            document.getElementById('video').play();
-            document.getElementById('button').style.display = "none";
-        }
-    </script>
-
-    <video class="myVideo" id="video">
-        <source src="vid.mp4" type="video/mp4"> Your browser does not support HTML5 video.
-    </video>
-
-    <div class="text">Mark was here.</div>
+    <div class="background">
+        <video autoplay muted loop class="video">
+            <source src="resources/Waves.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="title">Mark McGregor</div>
+    <div class="paragraph">Multimedia and Design</div>
 </body>
 
 </html>
