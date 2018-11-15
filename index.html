@@ -29,6 +29,7 @@
 
             margin: auto;
             text-align: center;
+            animation: fadein 5s;
         }
 
         .paragraph {
@@ -46,6 +47,7 @@
 
             margin: auto;
             text-align: center;
+            animation: fadein 10s;
         }
 
         .background {
@@ -72,6 +74,11 @@
             height: auto;
             z-index: -100;
             transform: translateX(-50%) translateY(-50%);
+        }
+
+        @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
         }
     </style>
 </head>
