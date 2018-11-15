@@ -9,27 +9,29 @@
             box-sizing: border-box;
         }
 
-        body {
-            background-color: white;
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .screen {
+            border: 2px solid red;
+            height: 100%;
+            width: 100%;
         }
 
         .title {
             font-family: 'Permanent Marker', cursive;
             font-size: 5vw;
             color: black;
-
-            width: fit-content;
-            height: fit-content;
+            opacity: 0;
 
             position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-
-            margin: auto;
-            text-align: center;
-            animation: fadein 5s;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            animation: fade-in 2s 1s forwards, moveup 2s 3s forwards;
         }
 
         .paragraph {
@@ -37,17 +39,14 @@
             font-weight: 250px;
             font-size: 3vw;
             color: black;
+            opacity: 0;
 
             position: absolute;
-            width: fit-content;
-            height: fit-content;
-            top: 55%;
-            left: 0;
-            right: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -10%);
 
-            margin: auto;
-            text-align: center;
-            animation: fadein 10s;
+            animation: fade-in 2s 4s forwards;
         }
 
         .background {
@@ -76,9 +75,14 @@
             transform: translateX(-50%) translateY(-50%);
         }
 
-        @keyframes fadein {
+        @keyframes fade-in {
             from { opacity: 0; }
             to   { opacity: 1; }
+        }
+
+        @keyframes moveup {
+            from { transform: translate(-50%, -50%); }
+            to { transform: translate(-50%, -100%); }
         }
     </style>
 </head>
@@ -89,8 +93,10 @@
             <source src="resources/background_video.mp4" type="video/mp4">
         </video>
     </div>
-    <div class="title">Mark McGregor</div>
-    <div class="paragraph">Multimedia and Design</div>
+    <div class="screen">
+        <div class="title">Mark McGregor</div>
+        <div class="paragraph">Multimedia and Design</div>
+    </div>
 </body>
 
 </html>
