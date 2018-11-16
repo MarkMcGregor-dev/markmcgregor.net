@@ -31,8 +31,12 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            
+
             animation: fade-in 2s 1s forwards, moveup 2s 3s forwards;
+        }
+
+        .title:hover {
+            color: rgb(255, 175, 100);
         }
 
         .paragraph {
@@ -48,6 +52,10 @@
             transform: translate(-50%, -10%);
 
             animation: fade-in 2s 4s forwards;
+        }
+
+        .paragraph:hover {
+            color: rgb(255, 175, 100);
         }
 
         .background {
@@ -87,12 +95,13 @@
             from { transform: translate(-50%, -50%); }
             to { transform: translate(-50%, -100%); }
         }
+
     </style>
 </head>
 
 <body>
     <div class="background">
-        <video autoplay muted playsinline loop class="video">
+        <video autoplay muted loop preload="auto" class="video">
             <source src="resources/background_video.mp4" type="video/mp4">
         </video>
     </div>
