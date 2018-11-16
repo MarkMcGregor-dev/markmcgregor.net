@@ -57,8 +57,10 @@
             right: 0;
             left: 0;
             padding: 0;
+            opacity: 0;
 
             color: white;
+            animation: fade-in 2s 1s forwards;
         }
 
         .video {
@@ -90,7 +92,7 @@
 
 <body>
     <div class="background">
-        <video autoplay muted loop class="video">
+        <video autoplay muted playsinline loop class="video">
             <source src="resources/background_video.mp4" type="video/mp4">
         </video>
     </div>
