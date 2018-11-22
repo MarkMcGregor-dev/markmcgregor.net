@@ -27,6 +27,7 @@
             border-style: solid;
             border-radius: 10px;
             opacity: 0;
+            background-origin: padding-box;
 
             position: absolute;
             top: 50%;
@@ -116,9 +117,9 @@
         }
 
         @keyframes box-entry {
-            0% { width: 0px; height: 0px; opacity: 0; }
-            50% { width: 100px; height: 85px; opacity: 1; }
-            100% { width: 700px; height: 85px; opacity: 1; }
+            0% { width: 0%; height: 0%; opacity: 0; }
+            50% { width: 5%; height: 10%; opacity: 1; }
+            100% { width: 35%; height: 10%; opacity: 1; }
         }
 
     </style>
