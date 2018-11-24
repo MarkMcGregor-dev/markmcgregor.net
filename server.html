@@ -72,19 +72,23 @@
 
 <body onload="setTimeout(updateFields,2000);">
     <div class="screen">
+
         <div class="title">
             <h1>Server Requester</h1>
         </div>
+
         <div class="status_table">
             <table style="width: 100%;">
                 <tr style="height:2cm;">
                     <td style="width:50%; text-align: center; font-size:3vw;">Status:</td>
                     <td class="status" style="text-align: right; font-size:3vw;">LOADING</td>
                 </tr>
+
                 <tr style="height:1cm;">
                     <td>Current IP:</td>
                     <td class="ip_current" style="text-align: right;">LOADING</td>
                 </tr>
+                
                 <tr>
                     <td>Last Known IP:</td>
                     <td class="ip_last" style="text-align: right;">LOADING</td>
@@ -95,13 +99,25 @@
 
     <script type="text/javascript">
         function updateFields() {
-            setField("status", "OFFLINE");
-            setField("ip_current", "UNNAVAILABLE");
-            setField("ip_last", "UNNAVAILABLE");
+            setStatus("OFFLINE");
+            setCurrentIP("UNNAVAILABLE");
+            setLastIP("UNNAVAILABLE");
+        }
+
+        function setStatus(value) {
+            setField("status", value);
+        }
+
+        function setCurrentIP(value) {
+            setField("ip_current", value);
+        }
+
+        function setLastIP(value) {
+            setField("ip_last", value);
         }
 
         function setField(field, value) {
-            document.getElementsByClassName(field)[0].innerHTML=value;
+            document.getElementsByClassName(field)[0].innerHTML = value;
         }
     </script>
 </body>
