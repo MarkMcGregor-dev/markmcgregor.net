@@ -70,7 +70,7 @@
     </style>
 </head>
 
-<body onload="setTimeout(updateFields,2000);">
+<body onload="setTimeout(startup,2000);">
     <div class="screen">
 
         <div class="title">
@@ -97,29 +97,8 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-        function updateFields() {
-            setStatus("OFFLINE");
-            setCurrentIP("UNNAVAILABLE");
-            setLastIP("UNNAVAILABLE");
-        }
-
-        function setStatus(value) {
-            setField("status", value);
-        }
-
-        function setCurrentIP(value) {
-            setField("ip_current", value);
-        }
-
-        function setLastIP(value) {
-            setField("ip_last", value);
-        }
-
-        function setField(field, value) {
-            document.getElementsByClassName(field)[0].innerHTML = value;
-        }
-    </script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>
