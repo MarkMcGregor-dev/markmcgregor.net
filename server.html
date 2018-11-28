@@ -1,105 +1,119 @@
 <!DOCTYPE html>
 <html>
-<link href="https://fonts.googleapis.com/css?family=Chakra+Petch|Roboto+Mono" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Chakra+Petch|Roboto+Mono"
+    rel="stylesheet"
+  />
 
-<head>
+  <head>
     <style>
-        * {
-            box-sizing: border-box;
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-image: url("resources/server/background_image.jpg");
+      }
+
+      .screen {
+        height: 100%;
+        width: 100%;
+      }
+
+      .title {
+        font-family: "Chakra Petch", sans-serif;
+        font-size: 2vw;
+        color: white;
+        /* animation: neon1 1.5s ease-in-out infinite; */
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff,
+          0 0 40px rgb(17, 160, 255), 0 0 70px rgb(17, 160, 255),
+          0 0 80px rgb(17, 160, 255), 0 0 100px rgb(17, 160, 255),
+          0 0 150px rgb(17, 160, 255);
+
+        width: 15cm;
+        height: 3cm;
+        text-align: center;
+        margin-top: 100px;
+        margin-bottom: 50px;
+
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+      }
+
+      .status_table {
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 20cm;
+        height: 2cm;
+        /* border: 2px solid red; */
+
+        transform: translate(-50%, -50%);
+      }
+
+      table,
+      td,
+      th {
+        border: 3px solid aqua;
+        border-collapse: collapse;
+        border-radius: 4px;
+        box-shadow: 0px 0px 50px rgb(17, 160, 255);
+
+        background: black;
+
+        font-family: "Roboto Mono", monospace;
+        font-size: 2vw;
+      }
+
+      @keyframes neon1 {
+        from {
+          text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff,
+            0 0 40px rgb(17, 160, 255), 0 0 70px rgb(17, 160, 255),
+            0 0 80px rgb(17, 160, 255), 0 0 100px rgb(17, 160, 255),
+            0 0 150px rgb(17, 160, 255);
         }
-
-        body {
-            background-image: url("resources/server/background_image.jpg");
+        to {
+          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff,
+            0 0 20px rgb(17, 160, 255), 0 0 35px rgb(17, 160, 255),
+            0 0 40px rgb(17, 160, 255), 0 0 50px rgb(17, 160, 255),
+            0 0 75px rgb(17, 160, 255);
         }
-
-        .screen {
-            height: 100%;
-            width: 100%;
-        }
-
-        .title {
-            font-family: 'Chakra Petch', sans-serif;
-            font-size: 2vw;
-            color: white;
-            animation: neon1 1.5s ease-in-out infinite;
-            
-            width: 15cm;
-            height: 3cm;
-            text-align: center;
-            margin-top: 100px;
-            margin-bottom: 50px;
-
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%, 0%);
-        }
-
-        .status_table {
-            color: white;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-
-            width: 20cm;
-            height: 2cm;
-            /* border: 2px solid red; */
-
-            transform: translate(-50%, -50%);
-        }
-
-        table, td, th {
-            border: 3px solid aqua;
-            border-collapse: collapse;
-            border-radius: 4px;
-            box-shadow: 0px 0px 50px rgb(17, 160, 255);
-
-            background: black;
-
-            font-family: 'Roboto Mono', monospace;
-            font-size: 2vw;
-        }
-
-        @keyframes neon1 {
-            from {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px rgb(17, 160, 255), 0 0 70px rgb(17, 160, 255), 0 0 80px rgb(17, 160, 255), 0 0 100px rgb(17, 160, 255), 0 0 150px rgb(17, 160, 255);
-            }
-            to {
-                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(17, 160, 255), 0 0 35px rgb(17, 160, 255), 0 0 40px rgb(17, 160, 255), 0 0 50px rgb(17, 160, 255), 0 0 75px rgb(17, 160, 255);
-            }
-        }
-
+      }
     </style>
-</head>
+  </head>
 
-<body onload="setTimeout(startup,2000);">
+  <body onload="setTimeout(startup,2000);">
     <div class="screen">
+      <div class="title"><h1>Server Requester</h1></div>
 
-        <div class="title">
-            <h1>Server Requester</h1>
-        </div>
+      <div class="status_table">
+        <table style="width: 100%;">
+          <tr style="height:2cm;">
+            <td style="width:50%; text-align: center; font-size:3vw;">
+              Status:
+            </td>
+            <td class="status" style="text-align: right; font-size:3vw;">
+              LOADING
+            </td>
+          </tr>
 
-        <div class="status_table">
-            <table style="width: 100%;">
-                <tr style="height:2cm;">
-                    <td style="width:50%; text-align: center; font-size:3vw;">Status:</td>
-                    <td class="status" style="text-align: right; font-size:3vw;">LOADING</td>
-                </tr>
+          <tr style="height:1cm;">
+            <td>Current IP:</td>
+            <td class="ip_current" style="text-align: right;">LOADING</td>
+          </tr>
 
-                <tr style="height:1cm;">
-                    <td>Current IP:</td>
-                    <td class="ip_current" style="text-align: right;">LOADING</td>
-                </tr>
-                
-                <tr>
-                    <td>Last Known IP:</td>
-                    <td class="ip_last" style="text-align: right;">LOADING</td>
-                </tr>
-            </table>
-        </div>
+          <tr>
+            <td>Last Known IP:</td>
+            <td class="ip_last" style="text-align: right;">LOADING</td>
+          </tr>
+        </table>
+      </div>
     </div>
 
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
-</body>
-
+  </body>
 </html>
