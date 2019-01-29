@@ -47,6 +47,36 @@
             transform: translate(-50%, -50%);
         }
 
+        .refresh_button {
+            background-color: rgb(17, 160, 255);
+            height: 50px;
+            width: 110px;
+
+            border-radius: 20px;
+
+            position: absolute;
+            top: 35%;
+            left: 50%;
+
+            transform: translateX(-50%);
+        }
+
+        .refresh_button_text {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2.5vw;
+            text-align: center;
+            user-select: none;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .refresh_button_text:hover {
+            color: white;
+        }
+
         table, td, th {
             border: 3px solid aqua;
             border-collapse: collapse;
@@ -76,6 +106,10 @@
 
         <div class="title">
             <h1>Server Requester</h1>
+        </div>
+
+        <div class="refresh_button" onclick="refreshFields();">
+            <div class="refresh_button_text">REFRESH</div>
         </div>
 
         <div class="status_table">

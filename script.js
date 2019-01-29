@@ -19,6 +19,10 @@ function updateFields() {
     setLastIP("UNNAVAILABLE");
 }
 
+function refreshFields() {
+    window.alert('working');
+}
+
 function setStatus(value) {
     setField("status", value);
 }
@@ -36,17 +40,15 @@ function setField(field, value) {
 }
 
 function getEC2Status() {
-    var ec2 = new AWS.EC2();
+    var lambda = new AWS.Lambda();
 
     var params = {
-        InstanceIds: [
-            "i-07a157bcc0241d75c"
-        ]
+        FunctionName: "GetInstanceStatus",
     };
 
-    ec2.describeInstances(params, function(err, data) {
+    lambda.invoke(params, function(err, data) {
         if (err) console.log(err, err.stack);
-        else console.log(data);
+        console.log(data);
     });
 }
 
