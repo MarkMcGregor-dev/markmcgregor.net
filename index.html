@@ -1,118 +1,123 @@
 <style>
-    body {
-        background-color: black;
-        background-image: url("resources/home/PortraitBackground.jpg");
-        background-size: 100%;
-        background-repeat: no-repeat;
-    }
+  body {
+    background-color: black;
+    background-image: url("resources/home/PortraitBackground.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: -10vh;
+  }
 
-    #TextArea {
-        position: relative;
+  #TextArea {
+    position: relative;
 
-        width: 35vw;
-        height: 40vh;
+    width: 35vw;
+    height: 40vh;
 
-        top: 50%;
-        left: 55%;
+    top: 50%;
+    left: 55%;
 
-        transform: translateY(-50%);
+    transform: translateY(-50%);
 
-        /* border: 2px solid red; */
-    }
+    /* border: 2px solid red; */
+  }
 
-    #TextArea #title {
-        position: absolute;
-        /* border: 2px solid red; */
+  #TextArea #title {
+    position: absolute;
+    /* border: 2px solid red; */
 
-        width: 100%;
+    width: 100%;
 
-        text-align: center;
-        top: 50%;
-        transform: translateY(-50%);
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
 
-        opacity: 0;
+    opacity: 0;
 
-        color: white;
-        font-size: 3.5vw;
-        font-weight: bold;
-        font-family: 'Major Mono Display', monospace;
-    }
+    color: white;
+    font-size: 3.5vw;
+    font-weight: bold;
+    font-family: "Major Mono Display", monospace;
+  }
 
-    #TextArea table {
-        position: absolute;
-        text-align: center;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+  #TextArea table {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-        opacity: 0;
+    opacity: 0;
 
-        color: white;
-        /* border: 2px solid red; */
+    color: white;
+    /* border: 2px solid red; */
 
-        font-size: 1vw;
-        font-weight: 200;
-        font-family: 'Play', sans-serif;
+    font-size: 1vw;
+    font-weight: 200;
+    font-family: "Play", sans-serif;
 
-        width: 90%;
+    width: 90%;
 
-        table-layout: fixed;
-    }
+    table-layout: fixed;
+  }
 
-    td {
-        border-right: 1px solid white;
-        border-left: 1px solid white;
-        user-select: none;
-    }
+  td {
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    user-select: none;
+  }
 </style>
 
 <html>
-<!-- Fonts Import -->
-<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Play" rel="stylesheet">
+  <!-- Fonts Import -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Play"
+    rel="stylesheet"
+  />
 
-<body>
-    <div>
-    </div>
+  <body>
+    <div></div>
 
     <div id="TextArea">
-        <div id="title">Mark McGregor</div>
-        <table>
-            <tr>
-                <td id="aboutButton">About</td>
-                <td id="galleryButton">Gallery</td>
-                <td id="contactButton">Contact</td>
-            </tr>
-        </table>
+      <div id="title">Mark McGregor</div>
+      <table>
+        <tr>
+          <td id="aboutButton">About</td>
+          <td id="galleryButton">Gallery</td>
+          <td id="contactButton">Contact</td>
+        </tr>
+      </table>
     </div>
-</body>
+  </body>
 
-<script src="node_modules/animejs/lib/anime.min.js"></script>
+  <script src="node_modules/animejs/lib/anime.min.js"></script>
 
-<script>
+  <script>
     var textTL = anime.timeline({
-        easing: 'easeInOutQuad',
+      easing: "easeInOutQuad"
     });
 
     textTL.add({
-        targets: '#title',
-        translateY: '-50%',
+      targets: "#title",
+      translateY: "-50%"
     });
 
     textTL.add({
-        targets: '#title',
-        opacity: 1,
-        duration: 2000,
+      targets: "#title",
+      opacity: 1,
+      duration: 2000
     });
 
     textTL.add({
-        targets: '#title',
-        translateY: '-150%',
+      targets: "#title",
+      translateY: "-150%"
     });
 
-    textTL.add({
-        targets: '#TextArea table',
-        opacity: 1,
-    }, '-=800');
-</script>
-
+    textTL.add(
+      {
+        targets: "#TextArea table",
+        opacity: 1
+      },
+      "-=800"
+    );
+  </script>
 </html>
