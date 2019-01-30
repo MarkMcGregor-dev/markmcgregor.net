@@ -7,7 +7,7 @@
     }
 
     #TextArea {
-        position: absolute;
+        position: relative;
 
         width: 35vw;
         height: 40vh;
@@ -18,13 +18,19 @@
         transform: translateY(-50%);
 
         /* border: 2px solid red; */
-
-        text-align: center;
     }
 
-    #TextArea h1 {
-        position: relative;
-        top: 5vh;
+    #TextArea #title {
+        position: absolute;
+        /* border: 2px solid red; */
+
+        width: 100%;
+
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+
+        opacity: 0;
 
         color: white;
         font-size: 3.5vw;
@@ -33,8 +39,13 @@
     }
 
     #TextArea table {
-        position: relative;
-        top: 5vh;
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        opacity: 0;
 
         color: white;
         /* border: 2px solid red; */
@@ -44,9 +55,6 @@
         font-family: 'Play', sans-serif;
 
         width: 90%;
-        text-align: center;
-        vertical-align: middle;
-        margin: auto;
 
         table-layout: fixed;
     }
@@ -62,8 +70,11 @@
 <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Play" rel="stylesheet">
 
 <body>
+    <div>
+    </div>
+
     <div id="TextArea">
-        <h1>Mark McGregor</h1>
+        <div id="title">Mark McGregor</div>
         <table>
             <tr>
                 <td>About</td>
@@ -73,5 +84,34 @@
         </table>
     </div>
 </body>
+
+<script src="node_modules/animejs/lib/anime.min.js"></script>
+
+<script>
+    var textTL = anime.timeline({
+        easing: 'easeInOutQuad',
+    });
+
+    textTL.add({
+        targets: '#title',
+        translateY: '-50%',
+    });
+
+    textTL.add({
+        targets: '#title',
+        opacity: 1,
+        duration: 2000,
+    });
+
+    textTL.add({
+        targets: '#title',
+        translateY: '-150%',
+    });
+
+    textTL.add({
+        targets: '#TextArea table',
+        opacity: 1,
+    }, '-=800');
+</script>
 
 </html>
