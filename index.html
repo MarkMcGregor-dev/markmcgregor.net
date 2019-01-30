@@ -65,6 +65,11 @@
     border-left: 1px solid white;
     user-select: none;
   }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
 </style>
 
 <html>
@@ -81,9 +86,9 @@
       <div id="title">Mark McGregor</div>
       <table>
         <tr>
-          <td id="aboutButton">About</td>
-          <td id="galleryButton">Gallery</td>
-          <td id="contactButton">Contact</td>
+          <td id="aboutButton"><a href="about.html">About</a></td>
+          <td id="galleryButton"><a href="gallery.html">Gallery</a></td>
+          <td id="contactButton"><a href="contact.html">Contact</a></td>
         </tr>
       </table>
     </div>
@@ -91,7 +96,9 @@
 
   <script src="node_modules/animejs/lib/anime.min.js"></script>
 
+  <!-- Anime.js animations -->
   <script>
+    // Text area IN timeline
     var textTL = anime.timeline({
       easing: "easeInOutQuad"
     });
@@ -119,5 +126,35 @@
       },
       "-=800"
     );
+
+    var buttons = document.querySelectorAll("td");
+
+    buttons.forEach(function(element) {
+      document.getElementById(element.id).onmouseenter = function() {
+        enterButton(this);
+      };
+
+      document.getElementById(element.id).onmouseleave = function() {
+        exitButton(this);
+      };
+    });
+
+    function animateButton(element, scale, duration, elasticity) {
+      anime.remove(element);
+      anime({
+        targets: element,
+        scale: scale,
+        duration: duration,
+        elasticity: elasticity
+      });
+    }
+
+    function enterButton(element) {
+      animateButton(element, 1.2, 800, 400);
+    }
+
+    function exitButton(element) {
+      animateButton(element, 1.0, 600, 300);
+    }
   </script>
 </html>
