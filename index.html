@@ -71,13 +71,15 @@
   }
 
   td {
-    border-right: 1px solid white;
-    border-left: 1px solid white;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
     user-select: none;
+    background-clip: padding-box;
   }
 
   a {
     text-decoration: none;
+    background-color: black;
     color: white;
   }
 </style>
@@ -149,7 +151,22 @@
       };
     });
 
-    function animateButton(element, scale, duration, elasticity) {
+    function animateButton(element, isEntering) {
+      var scale;
+      var duration;
+      var elasticity;
+      var bgColor;
+
+      if (isEntering) {
+        scale = 1.2;
+        duration = 800;
+        elasticity = 400;
+      } else {
+        scale = 1.0;
+        duration = 600;
+        elasticity = 300;
+      }
+
       anime.remove(element);
       anime({
         targets: element,
@@ -160,11 +177,11 @@
     }
 
     function enterButton(element) {
-      animateButton(element, 1.2, 800, 400);
+      animateButton(element, true);
     }
 
     function exitButton(element) {
-      animateButton(element, 1.0, 600, 300);
+      animateButton(element, false);
     }
   </script>
 </html>
