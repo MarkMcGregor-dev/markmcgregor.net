@@ -1,20 +1,34 @@
 <style>
-  body {
+
+  /* TITLE SECTION */
+
+  #TitleSection {
+    position: relative;
+
+    width: 100%;
+    height: 110%;
+
     background-color: black;
   }
 
+  body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+  }
+
   #photo {
-      position: absolute;
+    position: absolute;
 
-      background-image: url("resources/home/PortraitBackground.jpg");
-      background-size: 100%;
-      width: 100vh;
-      height: 100vh;
+    background-image: url("resources/home/PortraitBackground.jpg");
+    background-size: 100%;
+    width: 100vh;
+    height: 100vh;
 
-      top: 50%;
-      left: 30%;
+    top: 45%;
+    left: 30%;
 
-      transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 
   #TextArea {
@@ -23,7 +37,7 @@
     width: 35vw;
     height: 40vh;
 
-    top: 50%;
+    top: 45%;
     left: 55%;
 
     transform: translateY(-50%);
@@ -82,16 +96,92 @@
     background-color: black;
     color: white;
   }
+
+
+  /* ABOUT SECTION */
+
+  #AboutSection {
+    position: relative;
+
+    width: 100%;
+    height: 130%;
+
+    background-color: white;
+  }
+
+  #AboutSection #title {
+    position: absolute;
+
+    font-family: "Oswald", sans-serif;
+    font-size: 6vw;
+
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+  }
+
+  #AboutSection #text {
+
+  }
+
+
+  /* GALLERY SECTION */
+
+  #GallerySection {
+    position: relative;
+
+    width: 100%;
+    height: 130%;
+
+    background-color: black;
+  }
+
+  #GallerySection #title {
+    position: absolute;
+
+    font-family: "Oswald", sans-serif;
+    font-size: 6vw;
+    color: white;
+
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+  }
+
+
+  /* CONTACT SECTION */
+
+  #ContactSection {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: white;
+  }
+
+  #ContactSection #title {
+    position: absolute;
+
+    font-family: "Oswald", sans-serif;
+    font-size: 6vw;
+
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+  }
 </style>
+
+
 
 <html>
   <!-- Fonts Import -->
   <link
-    href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Play"
+    href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Play|Oswald|Poppins"
     rel="stylesheet"
   />
 
-  <body>
+  <div id="TitleSection">
     <div id="photo"></div>
 
     <div id="TextArea">
@@ -104,7 +194,20 @@
         </tr>
       </table>
     </div>
-  </body>
+  </div>
+  
+  <div id="AboutSection">
+    <div id="title">About</div>
+    <div id="text"></div>
+  </div>
+
+  <div id="GallerySection">
+    <div id="title">Gallery</div>
+  </div>
+
+  <div id="ContactSection">
+    <div id="title">Contact</div>
+  </div>
 
   <script src="node_modules/animejs/lib/anime.min.js"></script>
 
@@ -116,18 +219,18 @@
     });
 
     textTL.add({
-      targets: "#title",
+      targets: "#TextArea #title",
       translateY: "-50%"
     });
 
     textTL.add({
-      targets: "#title",
+      targets: "#TextArea #title",
       opacity: 1,
       duration: 2000
     });
 
     textTL.add({
-      targets: "#title",
+      targets: "#TextArea #title",
       translateY: "-150%"
     });
 
