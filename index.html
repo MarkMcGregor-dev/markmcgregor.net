@@ -1,10 +1,20 @@
 <style>
   body {
     background-color: black;
-    background-image: url("resources/home/PortraitBackground.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position-y: -10vh;
+  }
+
+  #photo {
+      position: absolute;
+
+      background-image: url("resources/home/PortraitBackground.jpg");
+      background-size: 100%;
+      width: 100vh;
+      height: 100vh;
+
+      top: 50%;
+      left: 30%;
+
+      transform: translate(-50%, -50%);
   }
 
   #TextArea {
@@ -80,7 +90,7 @@
   />
 
   <body>
-    <div></div>
+    <div id="photo"></div>
 
     <div id="TextArea">
       <div id="title">Mark McGregor</div>
