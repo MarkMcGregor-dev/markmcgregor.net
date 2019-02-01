@@ -1,5 +1,4 @@
 <style>
-
   /* TITLE SECTION */
 
   #TitleSection {
@@ -120,8 +119,28 @@
     transform: translateX(-50%);
   }
 
-  #AboutSection #text {
+  #AboutSection #portrait {
+    position: absolute;
 
+    top: 36%;
+    left: 17%;
+    transform: translate(-50%, -50%);
+
+    border: 2px solid red;
+
+  }
+
+  #AboutSection #statement {
+    position: absolute;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 1.7vw;
+
+    width: 50%;
+
+    left: 60%;
+    top: 30%;
+    transform: translateX(-50%);
   }
 
 
@@ -175,116 +194,117 @@
 
 
 <html>
-  <!-- Fonts Import -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Play|Oswald|Poppins"
-    rel="stylesheet"
-  />
+<!-- Fonts Import -->
+<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Play|Oswald|Poppins" rel="stylesheet" />
 
-  <div id="TitleSection">
-    <div id="photo"></div>
+<div id="TitleSection">
+  <div id="photo"></div>
 
-    <div id="TextArea">
-      <div id="title">Mark McGregor</div>
-      <table>
-        <tr>
-          <td id="aboutButton"><a>About</a></td>
-          <td id="artworkButton"><a>Artwork</a></td>
-          <td id="contactButton"><a>Contact</a></td>
-        </tr>
-      </table>
-    </div>
+  <div id="TextArea">
+    <div id="title">Mark McGregor</div>
+    <table>
+      <tr>
+        <td id="aboutButton"><a>About</a></td>
+        <td id="artworkButton"><a>Artwork</a></td>
+        <td id="contactButton"><a>Contact</a></td>
+      </tr>
+    </table>
   </div>
-  
-  <div id="AboutSection">
-    <div id="title">About</div>
-    <div id="text"></div>
-  </div>
+</div>
 
-  <div id="ArtworkSection">
-    <div id="title">Artwork</div>
-  </div>
+<div id="AboutSection">
+  <div id="title">About</div>
+  <img id="portrait">
+  <p id="statement">
+    I am a full-time student studying Interactive Multimedia Design at Carleton University in Ottawa, Canada.
+  </p>
+</div>
 
-  <div id="ContactSection">
-    <div id="title">Contact</div>
-  </div>
+<div id="ArtworkSection">
+  <div id="title">Artwork</div>
+</div>
 
-  <script src="node_modules/animejs/lib/anime.min.js"></script>
+<div id="ContactSection">
+  <div id="title">Contact</div>
+</div>
 
-  <!-- Anime.js animations -->
-  <script>
-    // Text area IN timeline
-    var textTL = anime.timeline({
-      easing: "easeInOutQuad"
-    });
+<script src="node_modules/animejs/lib/anime.min.js"></script>
 
-    textTL.add({
-      targets: "#TextArea #title",
-      translateY: "-50%"
-    });
+<!-- Anime.js animations -->
+<script>
+  // Text area IN timeline
+  var textTL = anime.timeline({
+    easing: "easeInOutQuad"
+  });
 
-    textTL.add({
-      targets: "#TextArea #title",
-      opacity: 1,
-      duration: 2000
-    });
+  textTL.add({
+    targets: "#TextArea #title",
+    translateY: "-50%"
+  });
 
-    textTL.add({
-      targets: "#TextArea #title",
-      translateY: "-150%"
-    });
+  textTL.add({
+    targets: "#TextArea #title",
+    opacity: 1,
+    duration: 2000
+  });
 
-    textTL.add(
-      {
-        targets: "#TextArea table",
-        opacity: 1
-      },
-      "-=800"
-    );
+  textTL.add({
+    targets: "#TextArea #title",
+    translateY: "-150%"
+  });
 
-    var buttons = document.querySelectorAll("td");
+  textTL.add(
+    {
+      targets: "#TextArea table",
+      opacity: 1
+    },
+    "-=800"
+  );
 
-    buttons.forEach(function(element) {
-      document.getElementById(element.id).onmouseenter = function() {
-        enterButton(this);
-      };
+  var buttons = document.querySelectorAll("td");
 
-      document.getElementById(element.id).onmouseleave = function() {
-        exitButton(this);
-      };
-    });
+  buttons.forEach(function (element) {
+    document.getElementById(element.id).onmouseenter = function () {
+      enterButton(this);
+    };
 
-    function animateButton(element, isEntering) {
-      var scale;
-      var duration;
-      var elasticity;
-      var bgColor;
+    document.getElementById(element.id).onmouseleave = function () {
+      exitButton(this);
+    };
+  });
 
-      if (isEntering) {
-        scale = 1.2;
-        duration = 800;
-        elasticity = 400;
-      } else {
-        scale = 1.0;
-        duration = 600;
-        elasticity = 300;
-      }
+  function animateButton(element, isEntering) {
+    var scale;
+    var duration;
+    var elasticity;
+    var bgColor;
 
-      anime.remove(element);
-      anime({
-        targets: element,
-        scale: scale,
-        duration: duration,
-        elasticity: elasticity
-      });
+    if (isEntering) {
+      scale = 1.2;
+      duration = 800;
+      elasticity = 400;
+    } else {
+      scale = 1.0;
+      duration = 600;
+      elasticity = 300;
     }
 
-    function enterButton(element) {
-      animateButton(element, true);
-    }
+    anime.remove(element);
+    anime({
+      targets: element,
+      scale: scale,
+      duration: duration,
+      elasticity: elasticity
+    });
+  }
 
-    function exitButton(element) {
-      animateButton(element, false);
-    }
-  </script>
+  function enterButton(element) {
+    animateButton(element, true);
+  }
+
+  function exitButton(element) {
+    animateButton(element, false);
+  }
+</script>
+
 </html>
