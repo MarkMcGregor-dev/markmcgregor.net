@@ -108,7 +108,7 @@
     background-color: white;
   }
 
-  #AboutSection #title {
+  #AboutSection > #title {
     position: absolute;
 
     font-family: "Oswald", sans-serif;
@@ -123,15 +123,24 @@
     position: absolute;
 
     top: 36%;
-    left: 17%;
+    left: 20%;
     transform: translate(-50%, -50%);
 
-    border: 2px solid red;
+    width: 35vh;
+    height: 35vh;
+
+    background-color: white;
+    background-image: url("resources/home/PhotoPlaceholder.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-blend-mode: luminosity;
+
+    /* border: 2px solid red; */
 
   }
 
   #AboutSection #statement {
-    position: absolute;
+    position: relative;
 
     font-family: "Poppins", sans-serif;
     font-size: 1.7vw;
@@ -143,6 +152,43 @@
     transform: translateX(-50%);
   }
 
+  #AboutSection #resume {
+    position: relative;
+    
+    width: 90vw;
+    height: 30vw;
+
+    left: 50%;
+    top: 62%;
+    transform: translate(-50%, -50%);
+
+    border: 2px solid red;
+  }
+
+  #AboutSection #resume > div {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 90%;
+    border: 2px solid red;
+  }
+
+  #AboutSection #resume > div #title {
+    color: red;
+  }
+
+  #AboutSection #resume #s1 {
+    left: 18%;
+  }
+
+  #AboutSection #resume #s2 {
+    left: 50%;
+  }
+
+  #AboutSection #resume #s3 {
+    left: 82%;
+  }
 
   /* ARTWORK SECTION */
 
@@ -194,12 +240,12 @@
 
 
 <html>
+
 <!-- Fonts Import -->
 <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Play|Oswald|Poppins" rel="stylesheet" />
 
 <div id="TitleSection">
   <div id="photo"></div>
-
   <div id="TextArea">
     <div id="title">Mark McGregor</div>
     <table>
@@ -214,10 +260,30 @@
 
 <div id="AboutSection">
   <div id="title">About</div>
-  <img id="portrait">
+  <div id="portrait"></div>
   <p id="statement">
-    I am a full-time student studying Interactive Multimedia Design at Carleton University in Ottawa, Canada.
+    Hi there! I'm Mark, a full-time student studying Interactive Multimedia Design at Carleton University in Ottawa, Canada.
   </p>
+  <div id="resume">
+    <div id="s1">
+      <div id="title">Java Developer</div>
+      <div id="location">Trend Micro</div>
+      <div id="time">June 2017-August 2017 | June 2018-August 2018</div>
+      <div id="ach">Developed program that reduced cloud-computing costs by ~70%</div>
+    </div>
+    <div id="s2">
+      <div id="title">Java Developer</div>
+      <div id="location">Trend Micro</div>
+      <div id="time">June 2017-August 2017 | June 2018-August 2018</div>
+      <div id="ach">Developed program that reduced cloud-computing costs by ~70%</div>
+    </div>
+    <div id="s3">
+      <div id="title">Java Developer</div>
+      <div id="location">Trend Micro</div>
+      <div id="time">June 2017-August 2017 | June 2018-August 2018</div>
+      <div id="ach">Developed program that reduced cloud-computing costs by ~70%</div>
+    </div>
+  </div>
 </div>
 
 <div id="ArtworkSection">
@@ -230,7 +296,10 @@
 
 <script src="node_modules/animejs/lib/anime.min.js"></script>
 
+
+
 <!-- Anime.js animations -->
+
 <script>
   // Text area IN timeline
   var textTL = anime.timeline({
