@@ -92,7 +92,6 @@
 
   a {
     text-decoration: none;
-    background-color: black;
     color: white;
   }
 
@@ -113,10 +112,12 @@
 
     font-family: "Oswald", sans-serif;
     font-size: 6vw;
+    text-shadow: 2vh 2vh 2vh grey;
 
     left: 50%;
     top: 10%;
     transform: translateX(-50%);
+
   }
 
   #AboutSection #portrait {
@@ -125,6 +126,7 @@
     top: 36%;
     left: 20%;
     transform: translate(-50%, -50%);
+    box-shadow: 2vh 3vh 6.5vh grey;
 
     width: 35vh;
     height: 35vh;
@@ -156,13 +158,13 @@
     position: relative;
     
     width: 90vw;
-    height: 30vw;
+    height: 20vw;
 
     left: 50%;
     top: 62%;
     transform: translate(-50%, -50%);
 
-    border: 2px solid red;
+    /* border: 2px solid red; */
   }
 
   #AboutSection #resume > div {
@@ -171,15 +173,31 @@
     transform: translate(-50%, -50%);
     width: 30%;
     height: 90%;
-    border: 2px solid red;
+    /* border: 2px solid red; */
   }
 
   #AboutSection #resume > div #title {
-    color: red;
+    text-shadow: 3px 5px 10px rgb(185, 185, 185);
+    font-family: "Oswald", sans-serif;
+    font-size: 5vh;
+    text-align: center;
+  }
+
+  #AboutSection #resume > div :not(#title) {
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5vh;
+    text-align: left;
+    padding-left: 2vh;
+    padding-top: 0.8vh;
+    text-align: center;
+  }
+
+  #AboutSection #resume > div #ach {
+    font-family: 'Courier New', Courier, monospace;
   }
 
   #AboutSection #resume #s1 {
-    left: 18%;
+    left: 15%;
   }
 
   #AboutSection #resume #s2 {
@@ -187,7 +205,7 @@
   }
 
   #AboutSection #resume #s3 {
-    left: 82%;
+    left: 85%;
   }
 
   /* ARTWORK SECTION */
@@ -230,6 +248,7 @@
 
     font-family: "Oswald", sans-serif;
     font-size: 6vw;
+    text-shadow: 2vh 2vh 2vh grey;
 
     left: 50%;
     top: 10%;
@@ -268,20 +287,20 @@
     <div id="s1">
       <div id="title">Java Developer</div>
       <div id="location">Trend Micro</div>
-      <div id="time">June 2017-August 2017 | June 2018-August 2018</div>
-      <div id="ach">Developed program that reduced cloud-computing costs by ~70%</div>
+      <div id="time">June-August 2017, June-August 2018</div>
+      <div id="ach"><br>Developed program that reduced cloud-computing costs by ~70%</div>
     </div>
     <div id="s2">
-      <div id="title">Java Developer</div>
-      <div id="location">Trend Micro</div>
-      <div id="time">June 2017-August 2017 | June 2018-August 2018</div>
-      <div id="ach">Developed program that reduced cloud-computing costs by ~70%</div>
+      <div id="title">Barista</div>
+      <div id="location">Equator Coffee Roasters</div>
+      <div id="time">June 2016 - August 2018</div>
+      <div id="ach"><br>Learned and perfected the art of serving quality coffee</div>
     </div>
     <div id="s3">
-      <div id="title">Java Developer</div>
-      <div id="location">Trend Micro</div>
-      <div id="time">June 2017-August 2017 | June 2018-August 2018</div>
-      <div id="ach">Developed program that reduced cloud-computing costs by ~70%</div>
+      <div id="title">Rock Climbing Coach</div>
+      <div id="location">Alitude Gym Kanata</div>
+      <div id="time">September 2018 - Present</div>
+      <div id="ach"><br>Developed program that reduced cloud-computing costs by ~70%</div>
     </div>
   </div>
 </div>
@@ -330,17 +349,41 @@
     "-=800"
   );
 
-  var buttons = document.querySelectorAll("td");
+  var buttons = document.querySelectorAll("#TitleSection td");
 
   buttons.forEach(function (element) {
     document.getElementById(element.id).onmouseenter = function () {
       enterButton(this);
     };
 
+    document.getElementById(element.id).onclick = function () {
+      buttonScroll(this);
+    };
+
     document.getElementById(element.id).onmouseleave = function () {
       exitButton(this);
     };
   });
+
+  function buttonScroll(element) {
+    if (element.id == "aboutButton") {
+      scrollDown(document.getElementById("AboutSection").offsetTop, 500);
+    } else if (element.id == "artworkButton") {
+      scrollDown(document.getElementById("ArtworkSection").offsetTop, 1000);
+    } else if (element.id == "contactButton") {
+      scrollDown(document.getElementById("ContactSection").offsetTop, 1500);
+    }
+  }
+
+  function scrollDown(amount, duration) {
+    // window.scrollTo(0,amount);
+    anime({
+      targets: window.document.scrollingElement || window.document.body || window.document.documentElement,
+      scrollTop: amount,
+      duration: duration,
+      easing: 'easeInOutQuad'
+    });
+  }
 
   function animateButton(element, isEntering) {
     var scale;
