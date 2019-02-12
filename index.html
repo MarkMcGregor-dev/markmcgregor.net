@@ -16,7 +16,7 @@
     padding: 0;
   }
 
-  #photo {
+  #TitleSection #photo {
     position: absolute;
 
     background-image: url("resources/home/PortraitBackground.jpg");
@@ -107,7 +107,7 @@
     background-color: white;
   }
 
-  #AboutSection > #title {
+  #AboutSection>#title {
     position: absolute;
 
     font-family: "Oswald", sans-serif;
@@ -156,7 +156,7 @@
 
   #AboutSection #resume {
     position: relative;
-    
+
     width: 90vw;
     height: 20vw;
 
@@ -167,7 +167,7 @@
     /* border: 2px solid red; */
   }
 
-  #AboutSection #resume > div {
+  #AboutSection #resume>div {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -176,14 +176,14 @@
     /* border: 2px solid red; */
   }
 
-  #AboutSection #resume > div #title {
+  #AboutSection #resume>div #title {
     text-shadow: 3px 5px 10px rgb(185, 185, 185);
     font-family: "Oswald", sans-serif;
     font-size: 5vh;
     text-align: center;
   }
 
-  #AboutSection #resume > div :not(#title) {
+  #AboutSection #resume>div :not(#title) {
     font-family: "Poppins", sans-serif;
     font-size: 2.5vh;
     text-align: left;
@@ -192,7 +192,7 @@
     text-align: center;
   }
 
-  #AboutSection #resume > div #ach {
+  #AboutSection #resume>div #ach {
     font-family: 'Courier New', Courier, monospace;
   }
 
@@ -245,43 +245,59 @@
     /* border: 2px solid red; */
   }
 
-  #ArtworkSection #gallery img {
-    position: relative;
-    width: 26vw;
-    height: auto;
+  #ArtworkSection #gallery div {
+    float: left;
+    width: 30.5%;
+    height: 45%;
+    margin: 1.4%;
 
-    padding: 2vw;
+    filter: grayscale(1);
+
+    box-sizing: border-box;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    background-color: white;
+    /* border: 2px solid red; */
+  }
+  
+  /* Responsive Gallery Attributes (resize at 900px) */
+  @media only screen and (max-width: 900px) {
+    #ArtworkSection #gallery>div {
+      width: 47%;
+      height: 30%;
+    }
   }
 
   #ArtworkSection #gallery :nth-child(1) {
-    height: 40vh;
-    width: auto;
+    filter: invert(1);
+    background-image: url("resources/home/artworks/Einstein_Inverted.jpeg");
   }
 
   #ArtworkSection #gallery :nth-child(2) {
-    height: 40vh;
-    width: auto;
+    background-image: url("resources/home/artworks/European_Breakfast.jpg");
   }
 
   #ArtworkSection #gallery :nth-child(3) {
-    height: 40vh;
-    width: auto;
+    background-position: left;
+    background-image: url("resources/home/artworks/Name_Text.png");
   }
 
   #ArtworkSection #gallery :nth-child(4) {
-    height: 30vh;
-    width: auto;
-    padding-right: 0;
+    filter: sepia(0);
+    background-position: left;
+    background-image: url("resources/home/artworks/Natural_Pain-1.jpg");
   }
 
   #ArtworkSection #gallery :nth-child(5) {
-    height: 30vh;
-    width: auto;
-    padding-left: 0;
+    background-position: top;
+    background-image: url("resources/home/artworks/Screen_Advert.jpg");
   }
   
   #ArtworkSection #gallery :nth-child(6) {
-    width: 34vw;
+    background-image: url("resources/home/artworks/Water_Sim.png");
   }
 
 
@@ -337,7 +353,8 @@
   <div id="title">About</div>
   <div id="portrait"></div>
   <p id="statement">
-    Hi there! I'm Mark, a full-time student studying Interactive Multimedia Design at Carleton University in Ottawa, Canada.
+    Hi there! I'm Mark, a full-time student studying Interactive Multimedia Design at Carleton University in Ottawa,
+    Canada.
   </p>
   <div id="resume">
     <div id="s1">
@@ -364,18 +381,20 @@
 <div id="ArtworkSection">
   <div id="title">Artwork</div>
   <div id="gallery">
-    <img src="resources/home/artworks/Einstein.jpg">
-    <img src="resources/home/artworks/European_Breakfast.jpg">
-    <img src="resources/home/artworks/Screen_Advert.jpg">
-    <img src="resources/home/artworks/Natural_Pain-1.jpg">
-    <img src="resources/home/artworks/Natural_Pain-2.jpg">
-    <img src="resources/home/artworks/Name_Text.png">
+    <div id="artwork1"></div>
+    <div id="artwork2"></div>
+    <div id="artwork3"></div>
+    <div id="artwork4"></div>
+    <div id="artwork5"></div>
+    <div id="artwork6"></div>
   </div>
   </table>
 </div>
 
 <div id="ContactSection">
   <div id="title">Contact</div>
+  <form action="https://formspree.io/your@email.com" method="POST">
+    <input type="text" name="name">
 </div>
 
 <script src="node_modules/animejs/lib/anime.min.js"></script>
@@ -414,6 +433,7 @@
     "-=800"
   );
 
+  // Listeners for menu buttons
   var buttons = document.querySelectorAll("#TitleSection td");
 
   buttons.forEach(function (element) {
@@ -427,6 +447,19 @@
 
     document.getElementById(element.id).onmouseleave = function () {
       exitButton(this);
+    };
+  });
+
+  // Listeners for image gallery
+  var pieces = document.querySelectorAll("#ArtworkSection #Gallery div");
+  
+  pieces.forEach(function (element) {
+    document.getElementById(element.id).onmouseenter = function () {
+      enterArtwork(this);
+    };
+
+    document.getElementById(element.id).onmouseleave = function () {
+      exitArtwork(this);
     };
   });
 
@@ -454,7 +487,6 @@
     var scale;
     var duration;
     var elasticity;
-    var bgColor;
 
     if (isEntering) {
       scale = 1.2;
@@ -481,6 +513,40 @@
 
   function exitButton(element) {
     animateButton(element, false);
+  }
+
+  function enterArtwork(element) {
+    var filter = "grayscale(0)";
+
+    if (element.id == "artwork1")
+      filter = "invert(0)";
+    if (element.id == "artwork4")
+      filter = "sepia(1)";
+
+    anime.remove(element);
+    anime({
+      targets: element,
+      duration: 1000,
+      filter: filter,
+      border: "2px solid",
+    });
+  }
+
+  function exitArtwork(element) {
+    var filter = "grayscale(1)";
+
+    if (element.id == "artwork1")
+      filter = "invert(1)";
+    if (element.id == "artwork4")
+      filter = "sepia(0)";
+
+    anime.remove(element);
+    anime({
+      targets: element,
+      duration: 1000,
+      filter: filter,
+      border: "0px solid",
+    });
   }
 </script>
 
