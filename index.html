@@ -1,632 +1,88 @@
-<style>
-  /* TITLE SECTION */
-
-  #TitleSection {
-    position: relative;
-
-    width: 100%;
-    height: 110%;
-
-    background-color: black;
-  }
-
-  body {
-    background-color: black;
-    margin: 0;
-    padding: 0;
-  }
-
-  #TitleSection #photo {
-    position: absolute;
-
-    background-image: url("resources/home/PortraitBackground.jpg");
-    background-size: 100%;
-    width: 100vh;
-    height: 100vh;
-
-    top: 45%;
-    left: 30%;
-
-    transform: translate(-50%, -50%);
-  }
-
-  #TextArea {
-    position: relative;
-
-    width: 35vw;
-    height: 40vh;
-
-    top: 45%;
-    left: 55%;
-
-    transform: translateY(-50%);
-
-    /* border: 2px solid red; */
-  }
-
-  #TextArea #title {
-    position: absolute;
-    /* border: 2px solid red; */
-
-    width: 100%;
-
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
-
-    opacity: 0;
-
-    color: white;
-    font-size: 3.5vw;
-    font-weight: bold;
-    font-family: "Major Mono Display", monospace;
-  }
-
-  #TextArea table {
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    opacity: 0;
-
-    color: white;
-    /* border: 2px solid red; */
-
-    font-size: 1vw;
-    font-weight: 200;
-    font-family: "Play", sans-serif;
-
-    width: 90%;
-
-    table-layout: fixed;
-  }
-
-  td {
-    border-right: 2px solid white;
-    border-left: 2px solid white;
-    user-select: none;
-    background-clip: padding-box;
-  }
-
-  a {
-    text-decoration: none;
-    color: white;
-  }
-
-
-  /* ABOUT SECTION */
-
-  #AboutSection {
-    position: relative;
-
-    width: 100%;
-    height: 130%;
-
-    background-color: white;
-
-    /* border: 2px solid red; */
-  }
-
-  #AboutSection>#title {
-    position: absolute;
-
-    font-family: "Oswald", sans-serif;
-    font-size: 6vw;
-    text-shadow: 2vh 2vh 2vh grey;
-
-    left: 50%;
-    top: 10%;
-    transform: translateX(-50%);
-  }
-
-  #AboutSection #portrait {
-    position: absolute;
-
-    top: 36%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    box-shadow: 2vh 3vh 6.5vh grey;
-
-    width: 25vw;
-    height: 25vw;
-
-    background-color: white;
-    background-image: url("resources/home/PhotoPlaceholder.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-blend-mode: luminosity;
-
-    /* border: 2px solid red; */
-
-  }
-
-  #AboutSection #statement {
-    position: relative;
-
-    font-family: "Poppins", sans-serif;
-    font-size: 1.7vw;
-
-    width: 50%;
-
-    left: 60%;
-    top: 30%;
-    transform: translateX(-50%);
-
-    /* border: 2px solid red; */
-  }
-
-  #AboutSection #resume {
-    position: relative;
-
-    width: 90vw;
-    height: 20vw;
-
-    left: 50%;
-    top: 62%;
-    transform: translate(-50%, -50%);
-
-    /* border: 2px solid red; */
-  }
-
-  #AboutSection #resume>div {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 30%;
-    height: 90%;
-    /* border: 2px solid red; */
-  }
-
-  #AboutSection #resume>div #title {
-    text-shadow: 3px 5px 10px rgb(185, 185, 185);
-    font-family: "Oswald", sans-serif;
-    font-size: 5vh;
-    text-align: center;
-  }
-
-  #AboutSection #resume>div :not(#title) {
-    font-family: "Poppins", sans-serif;
-    font-size: 2.5vh;
-    text-align: left;
-    padding-left: 2vh;
-    padding-top: 0.8vh;
-    text-align: center;
-  }
-
-  #AboutSection #resume>div #ach {
-    font-family: 'Courier New', Courier, monospace;
-  }
-
-  #AboutSection #resume #s1 {
-    left: 15%;
-  }
-
-  #AboutSection #resume #s2 {
-    left: 50%;
-  }
-
-  #AboutSection #resume #s3 {
-    left: 85%;
-  }
-
-  /* ARTWORK SECTION */
-
-  #ArtworkSection {
-    position: relative;
-
-    width: 100%;
-    height: 140%;
-
-    background-color: black;
-  }
-
-  #ArtworkSection #title {
-    position: absolute;
-
-    font-family: "Oswald", sans-serif;
-    font-size: 6vw;
-    color: white;
-
-    left: 50%;
-    top: 7%;
-    transform: translateX(-50%);
-  }
-
-  #ArtworkSection #gallery {
-    position: relative;
-
-    left: 50%;
-    top: 58%;
-
-    width: 95%;
-    height: 75%;
-
-    transform: translate(-50%, -50%);
-
-    /* border: 2px solid red; */
-  }
-
-  #ArtworkSection #gallery div {
-    float: left;
-    width: 30.5%;
-    height: 45%;
-    margin: 1.4%;
-
-    filter: grayscale(1);
-
-    box-sizing: border-box;
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-
-    background-color: white;
-    /* border: 2px solid red; */
-  }
-  
-  /* Responsive Gallery Attributes (resize at 900px) */
-  @media only screen and (max-width: 900px) {
-    #ArtworkSection #gallery>div {
-      width: 47%;
-      height: 30%;
-    }
-  }
-
-  #ArtworkSection #gallery :nth-child(1) {
-    filter: invert(1);
-    background-image: url("resources/home/artworks/Einstein_Inverted.jpeg");
-  }
-
-  #ArtworkSection #gallery :nth-child(2) {
-    background-image: url("resources/home/artworks/European_Breakfast.jpg");
-  }
-
-  #ArtworkSection #gallery :nth-child(3) {
-    background-position: left;
-    background-image: url("resources/home/artworks/Name_Text.png");
-  }
-
-  #ArtworkSection #gallery :nth-child(4) {
-    filter: sepia(0);
-    background-position: left;
-    background-image: url("resources/home/artworks/Natural_Pain-1.jpg");
-  }
-
-  #ArtworkSection #gallery :nth-child(5) {
-    background-position: top;
-    background-image: url("resources/home/artworks/Screen_Advert.jpg");
-  }
-  
-  #ArtworkSection #gallery :nth-child(6) {
-    background-image: url("resources/home/artworks/Water_Sim.png");
-  }
-
-
-  /* CONTACT SECTION */
-
-  #ContactSection {
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-
-    background-color: white;
-  }
-
-  #ContactSection #title {
-    position: absolute;
-
-    font-family: "Oswald", sans-serif;
-    font-size: 6vw;
-    text-shadow: 2vh 2vh 2vh grey;
-
-    left: 50%;
-    top: 10%;
-    transform: translateX(-50%);
-  }
-
-  #ContactSection #formBox {
-    position: absolute;
-
-    display: block;
-    float: left;
-
-    width: 60%;
-    height: 35%;
-    left: 50%;
-    top: 55%;
-
-    transform: translate(-50%, -50%);
-
-    /* border: 2px solid red; */
-  }
-
-  #ContactSection #formBox #replyBox {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    margin: 2%;
-    width: fit-content;
-    margin-right: 1;
-
-    font-size: 3vh;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-    /* border: 2px solid red; */
-  }
-
-  #ContactSection #formBox #replyBox input {
-    position: relative;
-    right: 0%;
-    font-size: 3vh;
-  }
-
-  #ContactSection #formBox #nameBox {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    margin: 2%;
-    width: fit-content;
-    margin-right: 1;
-
-    font-size: 3vh;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-    /* border: 2px solid red; */
-  }
-
-  #ContactSection #formBox #nameBox input {
-    position: relative;
-    right: 0%;
-    font-size: 3vh;
-  }
-
-  #ContactSection #formBox form > input {
-    position: relative;
-    transform: translate(-50%);
-    left: 50%;
-    margin: 2%;
-    font-size: 4vh;
-  }
-</style>
-
-
-
 <html>
+  <!-- Link to CSS -->
+  <link rel="stylesheet" type="text/css" href="home.css">
 
-<title>Mark McGregor</title>
-<link rel="icon" href="resources/home/icon.jpg">
+  <title>Mark McGregor</title>
+  <link rel="icon" href="resources/home/icon.jpg">
 
-<!-- Fonts Import -->
-<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Play|Oswald|Poppins" rel="stylesheet" />
+  <!-- Fonts Import -->
+  <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Play|Oswald|Poppins" rel="stylesheet" />
 
-<div id="TitleSection">
-  <div id="photo"></div>
-  <div id="TextArea">
-    <div id="title">Mark McGregor</div>
-    <table>
-      <tr>
-        <td id="aboutButton"><a>About</a></td>
-        <td id="artworkButton"><a>Artwork</a></td>
-        <td id="contactButton"><a>Contact</a></td>
-      </tr>
+  <div id="TitleSection">
+    <div id="photo"></div>
+    <div id="TextArea">
+      <div id="title">Mark McGregor</div>
+      <table>
+        <tr>
+          <td id="aboutButton"><a>About</a></td>
+          <td id="artworkButton"><a>Artwork</a></td>
+          <td id="contactButton"><a>Contact</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="AboutSection">
+    <div id="title">About</div>
+    <div id="portrait"></div>
+    <p id="statement">
+      Hi there! I'm Mark, a full-time student studying Interactive Multimedia Design at Carleton University in Ottawa,
+      Canada.
+    </p>
+    <div id="resume">
+      <div id="s1">
+        <div id="title">Java Developer</div>
+        <div id="location">Trend Micro</div>
+        <div id="time">June-August 2017, June-August 2018</div>
+        <div id="ach"><br>Developed program that reduced cloud-computing costs by ~70%</div>
+      </div>
+      <div id="s2">
+        <div id="title">Barista</div>
+        <div id="location">Equator Coffee Roasters</div>
+        <div id="time">June 2016 - August 2018</div>
+        <div id="ach"><br>Learned and perfected the art of serving quality coffee</div>
+      </div>
+      <div id="s3">
+        <div id="title">Rock Climbing Coach</div>
+        <div id="location">Altitude Gym Kanata</div>
+        <div id="time">September 2018 - Present</div>
+        <div id="ach"><br>Perform climbing orientation</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="ArtworkSection">
+    <div id="title">Artwork</div>
+    <div id="gallery">
+      <div id="artwork1"></div>
+      <div id="artwork2"></div>
+      <div id="artwork3"></div>
+      <div id="artwork4"></div>
+      <div id="artwork5"></div>
+      <div id="artwork6"></div>
+    </div>
     </table>
   </div>
-</div>
 
-<div id="AboutSection">
-  <div id="title">About</div>
-  <div id="portrait"></div>
-  <p id="statement">
-    Hi there! I'm Mark, a full-time student studying Interactive Multimedia Design at Carleton University in Ottawa,
-    Canada.
-  </p>
-  <div id="resume">
-    <div id="s1">
-      <div id="title">Java Developer</div>
-      <div id="location">Trend Micro</div>
-      <div id="time">June-August 2017, June-August 2018</div>
-      <div id="ach"><br>Developed program that reduced cloud-computing costs by ~70%</div>
-    </div>
-    <div id="s2">
-      <div id="title">Barista</div>
-      <div id="location">Equator Coffee Roasters</div>
-      <div id="time">June 2016 - August 2018</div>
-      <div id="ach"><br>Learned and perfected the art of serving quality coffee</div>
-    </div>
-    <div id="s3">
-      <div id="title">Rock Climbing Coach</div>
-      <div id="location">Altitude Gym Kanata</div>
-      <div id="time">September 2018 - Present</div>
-      <div id="ach"><br>Perform climbing orientation</div>
+  <div id="ContactSection">
+    <div id="title">Contact</div>
+    <div id="formBox">
+      <form action="https://formspree.io/markmcgregor.contact@gmail.com" method="POST">
+        <div id="replyBox">
+          Your Email:
+          <input type="email" name="_replyto">
+        </div>
+        <div id="nameBox">
+          Your Name:
+          <input type="text" name="name">
+        </div>
+        <input type="submit" value="Contact Me">
+        <input type="hidden" name="_next" value="https://markmcgregor.net/confirmPage.html">
+      </form>
     </div>
   </div>
-</div>
 
-<div id="ArtworkSection">
-  <div id="title">Artwork</div>
-  <div id="gallery">
-    <div id="artwork1"></div>
-    <div id="artwork2"></div>
-    <div id="artwork3"></div>
-    <div id="artwork4"></div>
-    <div id="artwork5"></div>
-    <div id="artwork6"></div>
-  </div>
-  </table>
-</div>
-
-<div id="ContactSection">
-  <div id="title">Contact</div>
-  <div id="formBox">
-    <form action="https://formspree.io/markmcgregor.contact@gmail.com" method="POST">
-      <div id="replyBox">
-        Your Email:
-        <input type="email" name="_replyto">
-      </div>
-      <div id="nameBox">
-        Your Name:
-        <input type="text" name="name">
-      </div>
-      <input type="submit" value="Contact Me">
-      <input type="hidden" name="_next" value="https://markmcgregor.net/confirmPage.html">
-    </form>
-  </div>
-</div>
-
-<script src="node_modules/animejs/lib/anime.min.js"></script>
-
-
-
-<!-- Anime.js animations -->
-
-<script>
-  // Text area IN timeline
-  var textTL = anime.timeline({
-    easing: "easeInOutQuad"
-  });
-
-  textTL.add({
-    targets: "#TextArea #title",
-    translateY: "-50%"
-  });
-
-  textTL.add({
-    targets: "#TextArea #title",
-    opacity: 1,
-    duration: 2000
-  });
-
-  textTL.add({
-    targets: "#TextArea #title",
-    translateY: "-150%"
-  });
-
-  textTL.add(
-    {
-      targets: "#TextArea table",
-      opacity: 1
-    },
-    "-=800"
-  );
-
-  // Listeners for menu buttons
-  var buttons = document.querySelectorAll("#TitleSection td");
-
-  buttons.forEach(function (element) {
-    document.getElementById(element.id).onmouseenter = function () {
-      enterButton(this);
-    };
-
-    document.getElementById(element.id).onclick = function () {
-      buttonScroll(this);
-    };
-
-    document.getElementById(element.id).onmouseleave = function () {
-      exitButton(this);
-    };
-  });
-
-  // Listeners for image gallery
-  var pieces = document.querySelectorAll("#ArtworkSection #Gallery div");
-  
-  pieces.forEach(function (element) {
-    document.getElementById(element.id).onmouseenter = function () {
-      enterArtwork(this);
-    };
-
-    document.getElementById(element.id).onmouseleave = function () {
-      exitArtwork(this);
-    };
-  });
-
-  function buttonScroll(element) {
-    if (element.id == "aboutButton") {
-      scrollDown(document.getElementById("AboutSection").offsetTop, 500);
-    } else if (element.id == "artworkButton") {
-      scrollDown(document.getElementById("ArtworkSection").offsetTop, 1000);
-    } else if (element.id == "contactButton") {
-      scrollDown(document.getElementById("ContactSection").offsetTop, 1500);
-    }
-  }
-
-  function scrollDown(amount, duration) {
-    // window.scrollTo(0,amount);
-    anime({
-      targets: window.document.scrollingElement || window.document.body || window.document.documentElement,
-      scrollTop: amount,
-      duration: duration,
-      easing: 'easeInOutQuad'
-    });
-  }
-
-  function animateButton(element, isEntering) {
-    var scale;
-    var duration;
-    var elasticity;
-
-    if (isEntering) {
-      scale = 1.2;
-      duration = 800;
-      elasticity = 400;
-    } else {
-      scale = 1.0;
-      duration = 600;
-      elasticity = 300;
-    }
-
-    anime.remove(element);
-    anime({
-      targets: element,
-      scale: scale,
-      duration: duration,
-      elasticity: elasticity
-    });
-  }
-
-  function enterButton(element) {
-    animateButton(element, true);
-  }
-
-  function exitButton(element) {
-    animateButton(element, false);
-  }
-
-  function enterArtwork(element) {
-    var filter = "grayscale(0)";
-
-    if (element.id == "artwork1")
-      filter = "invert(0)";
-    if (element.id == "artwork4")
-      filter = "sepia(2)";
-
-    anime.remove(element);
-    anime({
-      targets: element,
-      duration: 1000,
-      filter: filter,
-      border: "2px solid",
-    });
-  }
-
-  function exitArtwork(element) {
-    var filter = "grayscale(1)";
-
-    if (element.id == "artwork1")
-      filter = "invert(1)";
-    if (element.id == "artwork4")
-      filter = "sepia(0)";
-
-    anime.remove(element);
-    anime({
-      targets: element,
-      duration: 1000,
-      filter: filter,
-      border: "0px solid",
-    });
-  }
-</script>
-
+  <!-- Anime.js animations -->
+  <script src="node_modules/animejs/lib/anime.min.js"></script>
+  <script src="animations.js"></script>
 </html>
