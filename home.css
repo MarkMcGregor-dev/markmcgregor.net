@@ -113,7 +113,9 @@ position: absolute;
 
 font-family: "Oswald", sans-serif;
 font-size: 6vw;
-text-shadow: 2vh 2vh 2vh grey;
+text-shadow: none;
+
+opacity: 0;
 
 left: 50%;
 top: 10%;

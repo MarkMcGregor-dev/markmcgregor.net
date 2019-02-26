@@ -1,31 +1,42 @@
-// Text area IN timeline
+// Text area
 var textTL = anime.timeline({
 easing: "easeInOutQuad"
 });
 
-textTL.add({
-targets: "#TextArea #title",
-translateY: "-50%"
+textTL.add({ // title pan up
+    targets: "#TextArea #title",
+    translateY: "-50%"
 });
-
-textTL.add({
-targets: "#TextArea #title",
-opacity: 1,
-duration: 2000
+textTL.add({ // title fade in
+    targets: "#TextArea #title",
+    opacity: 1,
+    duration: 2000
 });
-
-textTL.add({
-targets: "#TextArea #title",
-translateY: "-150%"
+textTL.add({ // title pan up
+    targets: "#TextArea #title",
+    translateY: "-150%"
 });
-
-textTL.add(
-{
+textTL.add({ // nav fade in
     targets: "#TextArea table",
     opacity: 1
-},
-"-=800"
-);
+},"-=800");
+
+
+// About Section
+var aboutTL = anime.timeline({
+    easing: "easeInOutQuad"
+});
+
+aboutTL.add ({ // title fade in
+    targets: "#AboutSection #title",
+    opacity: 1,
+});
+aboutTL.add ({ // title shadow appear
+    targets: "#AboutSection #title",
+    textShadow: "2vh 2vh 2vh grey",
+});
+
+
 
 // Listeners for menu buttons
 var buttons = document.querySelectorAll("#TitleSection td");
