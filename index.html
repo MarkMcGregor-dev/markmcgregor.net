@@ -76,36 +76,18 @@
     </table>
   </div>
 
-  <!-- <div id="ContactSection">
-    <div id="title">Contact</div>
-    <div id="formBox">
-      <form action="https://formspree.io/markmcgregor.contact@gmail.com" method="POST">
-        <div id="replyBox">
-          Your Email:
-          <input type="email" name="_replyto">
-        </div>
-        <div id="nameBox">
-          Your Name:
-          <input type="text" name="name">
-        </div>
-        <input type="submit" value="Contact Me">
-        <input type="hidden" name="_next" value="https://markmcgregor.net/confirmPage.html">
-      </form>
-    </div>
-  </div> -->
-
   <div id="ContactSection">
     <div id="title">Contact</div>
 
     <div id="formBox" class="container">
-      <form action="https://formspree.io/markmcgregor.contact@gmail.com" method="POST">
+      <form action="https://mailthis.to/markmcgregor.contact@gmail.com" method="POST" encType="multipart/form-data">
         <div class="row mb-4">
           <div class="col">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">Your Name</span>
               </div>
-              <input type="text" class="form-control" placeholder="First Last" name="name">
+              <input type="text" class="form-control" placeholder="First Last" name="Name">
             </div>
           </div>
           <div class="col">
@@ -113,7 +95,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">Email</span>
               </div>
-              <input type="text" class="form-control" placeholder="example@gmail.com" name="Reply To">
+              <input type="text" class="form-control" placeholder="example@gmail.com" name="_replyto">
             </div>
           </div>
         </div>
@@ -130,7 +112,10 @@
           </div>
         </div>
 
-        <input type="hidden" name="_next" value="https://markmcgregor.net/confirmPage.html">
+        <input type="hidden" name="_honeypot" value="">
+        <input type="hidden" name="_confirmation" value="">
+        <input type="hidden" name="_subject" value="Contact Request">
+        <input type="hidden" name="_after" value="https://markmcgregor.net/confirmPage.html">
       </form>
     </div>
   </div>
