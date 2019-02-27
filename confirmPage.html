@@ -1,35 +1,42 @@
 <style>
-    div {
+    .jumbotron {
         position: relative;
-        left: 50%;
-        top: 40%;
-        transform: translate(-50%, -50%);
-        font-size: 2vw;
-        
-        width: 50%;
-        text-align: center;
-    }
-
-    #title {
-        font-size: 10vw;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        text-shadow: 5px 10px 15px grey;
-    }
-
-    #text {
-        font-size: 2vw;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        width: fit-content;
+        top: 50%;
+        transform: translateY(-50%);
     }
 </style>
 
 <html>
-    <div id="title">
-        Thank You!
-    </div>
-    <div id="text">
-        <hr>
-        Your contact information has been sent;<br>I'll get back to you as soon as I can!
-        <hr>
-    </div>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<title>Mark McGregor</title>
+<link rel="icon" href="resources/home/icon.jpg">
+</head>
+
+<div class="jumbotron">
+    <h1 class="display-1 text-center">Thank you!</h1>
+    <hr class="my-4">
+    <p class="lead text-center">Your contact information has been sent;<br>I'll get back to you as soon as I can!</p>
+</div>
+
+<!-- IMPORTS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
 </html>
