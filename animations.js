@@ -32,7 +32,7 @@ aboutTL.add ({ // title fade in
     opacity: 1,
 });
 aboutTL.add ({ // title shadow appear
-    targets: "#AboutSection #title",
+    targets: "#AboutSection > #title",
     textShadow: "2vh 2vh 2vh grey",
 });
 
