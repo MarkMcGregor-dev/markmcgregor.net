@@ -1,0 +1,34 @@
+#page3 {
+    width: 100%;
+    height: 300%;
+    margin-top: 400px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Panel 1 */
+#page3 > #panel1 {
+    width: 99vw;
+    height: 140vw;
+    overflow: hidden;
+}
+
+#page3 > #panel1 > #e1 {
+    width: 100%;
+    height: 99%;
+    top: 60%;
+}
+
+#page3 > #panel1 > #e2 {
+    width: 50%;
+    height: 30%;
+    top: 15%;
+    left: 80%;
+}
+
+#page3 > #panel1 > #e3 {
+    width: 30%;
+    height: 15%;
+    top: 44.5%;
+    left: 45%;
+}

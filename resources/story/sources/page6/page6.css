@@ -1,0 +1,30 @@
+#page6 {
+    width: 100%;
+    height: 150%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 200px;
+}
+
+#page6 > #panel1 {
+    width: 80vw;
+    height: 67vw;
+}
+
+#page6 > #panel1 > #e1 {
+    width: 30%;
+    height: 18%;
+    top: 25%;
+}
+
+#page6 > #panel1 > #e2 {
+    width: 40%;
+    height: 10%;
+    top: 45%;
+}
+
+#page6 > #panel1 > #e3 {
+    width: 50%;
+    height: 30%;
+    top: 60%;
+}
