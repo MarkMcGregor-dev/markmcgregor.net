@@ -1,323 +1,30 @@
-<style>
-  /* TITLE SECTION */
-
-  #TitleSection {
-    position: relative;
-
-    width: 100%;
-    height: 110%;
-
-    background-color: black;
-  }
-
-  body {
-    background-color: black;
-    margin: 0;
-    padding: 0;
-  }
-
-  #photo {
-    position: absolute;
-
-    background-image: url("resources/home/PortraitBackground.jpg");
-    background-size: 100%;
-    width: 100vh;
-    height: 100vh;
-
-    top: 45%;
-    left: 30%;
-
-    transform: translate(-50%, -50%);
-  }
-
-  #TextArea {
-    position: relative;
-
-    width: 35vw;
-    height: 40vh;
-
-    top: 45%;
-    left: 55%;
-
-    transform: translateY(-50%);
-
-    /* border: 2px solid red; */
-  }
-
-  #TextArea #title {
-    position: absolute;
-    /* border: 2px solid red; */
-
-    width: 100%;
-
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
-
-    opacity: 0;
-
-    color: white;
-    font-size: 3.5vw;
-    font-weight: bold;
-    font-family: "Major Mono Display", monospace;
-  }
-
-  #TextArea table {
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    opacity: 0;
-
-    color: white;
-    /* border: 2px solid red; */
-
-    font-size: 1vw;
-    font-weight: 200;
-    font-family: "Play", sans-serif;
-
-    width: 90%;
-
-    table-layout: fixed;
-  }
-
-  td {
-    border-right: 2px solid white;
-    border-left: 2px solid white;
-    user-select: none;
-    background-clip: padding-box;
-  }
-
-  a {
-    text-decoration: none;
-    color: white;
-  }
-
-
-  /* ABOUT SECTION */
-
-  #AboutSection {
-    position: relative;
-
-    width: 100%;
-    height: 130%;
-
-    background-color: white;
-  }
-
-  #AboutSection > #title {
-    position: absolute;
-
-    font-family: "Oswald", sans-serif;
-    font-size: 6vw;
-    text-shadow: 2vh 2vh 2vh grey;
-
-    left: 50%;
-    top: 10%;
-    transform: translateX(-50%);
-
-  }
-
-  #AboutSection #portrait {
-    position: absolute;
-
-    top: 36%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    box-shadow: 2vh 3vh 6.5vh grey;
-
-    width: 35vh;
-    height: 35vh;
-
-    background-color: white;
-    background-image: url("resources/home/PhotoPlaceholder.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-blend-mode: luminosity;
-
-    /* border: 2px solid red; */
-
-  }
-
-  #AboutSection #statement {
-    position: relative;
-
-    font-family: "Poppins", sans-serif;
-    font-size: 1.7vw;
-
-    width: 50%;
-
-    left: 60%;
-    top: 30%;
-    transform: translateX(-50%);
-  }
-
-  #AboutSection #resume {
-    position: relative;
-    
-    width: 90vw;
-    height: 20vw;
-
-    left: 50%;
-    top: 62%;
-    transform: translate(-50%, -50%);
-
-    /* border: 2px solid red; */
-  }
-
-  #AboutSection #resume > div {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 30%;
-    height: 90%;
-    /* border: 2px solid red; */
-  }
-
-  #AboutSection #resume > div #title {
-    text-shadow: 3px 5px 10px rgb(185, 185, 185);
-    font-family: "Oswald", sans-serif;
-    font-size: 5vh;
-    text-align: center;
-  }
-
-  #AboutSection #resume > div :not(#title) {
-    font-family: "Poppins", sans-serif;
-    font-size: 2.5vh;
-    text-align: left;
-    padding-left: 2vh;
-    padding-top: 0.8vh;
-    text-align: center;
-  }
-
-  #AboutSection #resume > div #ach {
-    font-family: 'Courier New', Courier, monospace;
-  }
-
-  #AboutSection #resume #s1 {
-    left: 15%;
-  }
-
-  #AboutSection #resume #s2 {
-    left: 50%;
-  }
-
-  #AboutSection #resume #s3 {
-    left: 85%;
-  }
-
-  /* ARTWORK SECTION */
-
-  #ArtworkSection {
-    position: relative;
-
-    width: 100%;
-    height: 140%;
-
-    background-color: black;
-  }
-
-  #ArtworkSection #title {
-    position: absolute;
-
-    font-family: "Oswald", sans-serif;
-    font-size: 6vw;
-    color: white;
-
-    left: 50%;
-    top: 7%;
-    transform: translateX(-50%);
-  }
-
-  #ArtworkSection #gallery {
-    position: relative;
-
-    left: 50%;
-    top: 58%;
-
-    width: 95%;
-    height: 75%;
-
-    transform: translate(-50%, -50%);
-
-    /* border: 2px solid red; */
-  }
-
-  #ArtworkSection #gallery img {
-    position: relative;
-    width: 26vw;
-    height: auto;
-
-    padding: 2vw;
-  }
-
-  #ArtworkSection #gallery :nth-child(1) {
-    height: 40vh;
-    width: auto;
-  }
-
-  #ArtworkSection #gallery :nth-child(2) {
-    height: 40vh;
-    width: auto;
-  }
-
-  #ArtworkSection #gallery :nth-child(3) {
-    height: 40vh;
-    width: auto;
-  }
-
-  #ArtworkSection #gallery :nth-child(4) {
-    height: 30vh;
-    width: auto;
-    padding-right: 0;
-  }
-
-  #ArtworkSection #gallery :nth-child(5) {
-    height: 30vh;
-    width: auto;
-    padding-left: 0;
-  }
-  
-  #ArtworkSection #gallery :nth-child(6) {
-    width: 34vw;
-  }
-
-
-  /* CONTACT SECTION */
-
-  #ContactSection {
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-
-    background-color: white;
-  }
-
-  #ContactSection #title {
-    position: absolute;
-
-    font-family: "Oswald", sans-serif;
-    font-size: 6vw;
-    text-shadow: 2vh 2vh 2vh grey;
-
-    left: 50%;
-    top: 10%;
-    transform: translateX(-50%);
-  }
-</style>
-
-
-
 <html>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="description" content="My personal website containing resume, contact information, and my personal blog.">
+  <meta name="keywords" content="markmcgregor, mcgregor, resume, blog, personal, contact">
+  <meta name="author" content="Mark McGregor">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<!-- Link to CSS -->
+<link rel="stylesheet" type="text/css" href="home.css">
 
 <title>Mark McGregor</title>
 <link rel="icon" href="resources/home/icon.jpg">
 
 <!-- Fonts Import -->
 <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Play|Oswald|Poppins" rel="stylesheet" />
+
+<!-- Icons Import -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+  integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 <div id="TitleSection">
   <div id="photo"></div>
@@ -337,7 +44,8 @@
   <div id="title">About</div>
   <div id="portrait"></div>
   <p id="statement">
-    Hi there! I'm Mark, a full-time student studying Interactive Multimedia Design at Carleton University in Ottawa, Canada.
+    Hi there! I'm Mark, a full-time student studying Interactive Multimedia Design at Carleton University in Ottawa,
+    Canada.
   </p>
   <div id="resume">
     <div id="s1">
@@ -354,7 +62,7 @@
     </div>
     <div id="s3">
       <div id="title">Rock Climbing Coach</div>
-      <div id="location">Alitude Gym Kanata</div>
+      <div id="location">Altitude Gym Kanata</div>
       <div id="time">September 2018 - Present</div>
       <div id="ach"><br>Coach classes and perform climbing orientations</div>
     </div>
@@ -364,124 +72,79 @@
 <div id="ArtworkSection">
   <div id="title">Artwork</div>
   <div id="gallery">
-    <img src="resources/home/artworks/Einstein.jpg">
-    <img src="resources/home/artworks/European_Breakfast.jpg">
-    <img src="resources/home/artworks/Screen_Advert.jpg">
-    <img src="resources/home/artworks/Natural_Pain-1.jpg">
-    <img src="resources/home/artworks/Natural_Pain-2.jpg">
-    <img src="resources/home/artworks/Name_Text.png">
+    <div id="artwork1"></div>
+    <div id="artwork2"></div>
+    <div id="artwork3"></div>
+    <div id="artwork4"></div>
+    <div id="artwork5"></div>
+    <div id="artwork6"></div>
   </div>
   </table>
 </div>
 
 <div id="ContactSection">
   <div id="title">Contact</div>
+
+  <div id="formBox" class="container">
+    <form action="https://mailthis.to/markmcgregor.contact@gmail.com" method="POST" encType="multipart/form-data">
+      <div class="row mb-4">
+        <div class="col">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Your Name</span>
+            </div>
+            <input type="text" required class="form-control" placeholder="First Last" name="Name">
+          </div>
+        </div>
+        <div class="col">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Email</span>
+            </div>
+            <input type="text" required class="form-control" placeholder="example@gmail.com" name="Reply To">
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="input-group">
+          <textarea class="form-control" placeholder="Your message" spellcheck="true" rows="10"
+            name="Message">I'd like to get in touch.</textarea>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+          <button type="submit" class="btn-lg btn-outline-dark">Get In Touch</button>
+        </div>
+      </div>
+
+      <input type="hidden" name="_honeypot" value="">
+      <input type="hidden" name="_confirmation" value="">
+      <input type="hidden" name="_subject" value="Contact Request">
+      <input type="hidden" name="_after" value="https://markmcgregor.net/confirmPage.html">
+    </form>
+  </div>
 </div>
 
-<script src="node_modules/animejs/lib/anime.min.js"></script>
-
-
-
 <!-- Anime.js animations -->
+<script src="node_modules/animejs/lib/anime.min.js"></script>
+<script src="animations.js"></script>
 
+
+<!-- IMPORTS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- Artwork view script -->
 <script>
-  // Text area IN timeline
-  var textTL = anime.timeline({
-    easing: "easeInOutQuad"
+  $("#ArtworkSection #gallery > *").click(function () {
+    window.location.href = "pages/" + $(this).attr('id') + ".html";
   });
-
-  textTL.add({
-    targets: "#TextArea #title",
-    translateY: "-50%"
-  });
-
-  textTL.add({
-    targets: "#TextArea #title",
-    opacity: 1,
-    duration: 2000
-  });
-
-  textTL.add({
-    targets: "#TextArea #title",
-    translateY: "-150%"
-  });
-
-  textTL.add(
-    {
-      targets: "#TextArea table",
-      opacity: 1
-    },
-    "-=800"
-  );
-
-  var buttons = document.querySelectorAll("#TitleSection td");
-
-  buttons.forEach(function (element) {
-    document.getElementById(element.id).onmouseenter = function () {
-      enterButton(this);
-    };
-
-    document.getElementById(element.id).onclick = function () {
-      buttonScroll(this);
-    };
-
-    document.getElementById(element.id).onmouseleave = function () {
-      exitButton(this);
-    };
-  });
-
-  function buttonScroll(element) {
-    if (element.id == "aboutButton") {
-      scrollDown(document.getElementById("AboutSection").offsetTop, 500);
-    } else if (element.id == "artworkButton") {
-      scrollDown(document.getElementById("ArtworkSection").offsetTop, 1000);
-    } else if (element.id == "contactButton") {
-      scrollDown(document.getElementById("ContactSection").offsetTop, 1500);
-    }
-  }
-
-  function scrollDown(amount, duration) {
-    // window.scrollTo(0,amount);
-    anime({
-      targets: window.document.scrollingElement || window.document.body || window.document.documentElement,
-      scrollTop: amount,
-      duration: duration,
-      easing: 'easeInOutQuad'
-    });
-  }
-
-  function animateButton(element, isEntering) {
-    var scale;
-    var duration;
-    var elasticity;
-    var bgColor;
-
-    if (isEntering) {
-      scale = 1.2;
-      duration = 800;
-      elasticity = 400;
-    } else {
-      scale = 1.0;
-      duration = 600;
-      elasticity = 300;
-    }
-
-    anime.remove(element);
-    anime({
-      targets: element,
-      scale: scale,
-      duration: duration,
-      elasticity: elasticity
-    });
-  }
-
-  function enterButton(element) {
-    animateButton(element, true);
-  }
-
-  function exitButton(element) {
-    animateButton(element, false);
-  }
 </script>
 
 </html>
