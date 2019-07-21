@@ -1,0 +1,50 @@
+#page5 {
+    height: 250%;
+    width: 105%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: -110px;
+    background-color: white;
+}
+
+/* Panel 1 */
+#page5 > #panel1 {
+    width: 50vw;
+    height: 20vw;
+    top: 33%;
+    overflow: hidden;
+}
+
+#page5 > #panel1 > #e1 {
+    width: 85%;
+    height: 95%;
+    background-color: black;
+}
+
+/* Panel 2 */
+#page5 > #panel2 {
+    width: 50vw;
+    height: 20vw;
+    top: 50%;
+    overflow: hidden;
+}
+
+#page5 > #panel2 > #e1 {
+    width: 85%;
+    height: 95%;
+    background-color: black;
+}
+
+/* Panel 3 */
+#page5 > #panel3 {
+    width: 50vw;
+    height: 20vw;
+    top: 67%;
+    overflow: hidden;
+}
+
+#page5 > #panel3 > #e1 {
+    width: 85%;
+    height: 95%;
+    background-color: black;
+}

@@ -1,0 +1,26 @@
+#page0 > #panel1 {
+    width: 75%;
+    height: 90%;
+    top: 45%;
+}
+
+#page0 > #panel1 > #e1 {
+    width: 800px;
+    height: 12%;
+    top: 25%;
+    left: 50%;
+}
+
+#page0 > #panel1 > #e2 {
+    width: 700px;
+    height: 45%;
+    top: 60%;
+    left: 50%;
+}
+
+#page0 > #panel1 > #e3 {
+    width: 100px;
+    height: 5%;
+    top: 86%;
+    left: 35%;
+}
