@@ -1,0 +1,117 @@
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #theBox {
+        position: absolute;
+
+        width: 80px;
+        height: 50px;
+        background-color: black;
+        background-image: url("bat.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+
+        left: 50%;
+        top: 60%;
+
+        border-radius: 70px;
+
+        transform: translate(-50%, -50%);
+
+        animation: moveBox 1s infinite;
+        animation-timing-function: linear;
+    }
+
+    #theMans {
+        width: 100%;
+        height: 100%;
+
+        background-image: url(man.jpg);
+        background-size: 10%;
+
+        animation: slideMans 15s infinite;
+        animation-timing-function: linear;
+    }
+
+    #txt {
+        position: absolute;
+
+        top: 20%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+
+        text-align: center;
+
+        width: 100%;
+        color: white;
+        font-size: 9vh;
+        font-family: 'ZCOOL KuaiLe', cursive;
+        font-weight: bolder;
+
+        animation: txtimation 300ms infinite;
+        animation-timing-function: linear;
+    }
+
+    @keyframes moveBox {
+        50% {
+          width: 500px;
+          height: 500px;
+          transform: translate(-50%, -50%) rotate(180deg);
+        }
+        100% {
+        width: 50px;
+        height: 50px;
+        transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+    }
+
+    @keyframes slideMans {
+        0% {
+            background-position-x: 0%;
+            background-position-y: 0%;
+        }
+        100% {
+            background-position-x: 100%;
+            background-position-y: 200%;
+        }
+    }
+
+    @keyframes txtimation {
+        0% {
+            color: red;
+        }
+        20% {
+            color: blue;
+        }
+        40% {
+            color: orange;
+        }
+        60% {
+            color: pink;
+        }
+        80% {
+            color: green;
+        }
+        100% {
+            color: honeydew;
+        }
+    }
+</style>
+
+<html>
+
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
+
+
+
+
+    <div id="theMans"></div>
+    <div id="theBox"></div>
+    <div id="txt">BATMAN IS EVERYWHERE!!</div>
+</html>

@@ -1,0 +1,86 @@
+<style>
+    body {
+        background-color: skyblue;
+    }
+
+    div {
+        position: absolute;
+
+        background-image: url("fluffy.jpg");
+        background-size: 80%;
+        background-repeat: no-repeat;
+        width: 400px;
+        height: 200px;
+
+        top: 30%;
+        left: 20%;
+
+        animation: moveCloud 5s infinite;
+        animation-timing-function: linear;
+    }
+
+    #cloud1 {
+        left: 20%;
+        transform: translateY(-10px);
+    }
+
+    #cloud2 {
+        left: 70%;
+        transform: translateY(100px);
+    }
+
+    #cloud3 {
+        left: 40%;
+        transform: translateY(700px);
+    }
+
+    #cloud4 {
+        left: 60%;
+        transform: translateY(500px);
+    }
+
+    #cloud5 {
+        left: 10%;
+        transform: translateY(240px);
+    }
+    
+    #cloud6 {
+        font-size: 100px;
+        left: 1000%;
+        transform: translateY(170px);
+    }
+
+    #man {
+        background-image: url("man.jpg");
+        left: 50%;
+        animation: moveMan 5s infinite;
+
+    }
+
+    @keyframes moveCloud {
+        0% {
+        }
+        100% {
+            transform: translateY(900px) ;
+        }
+    }
+
+    @keyframes moveMan {
+        0% {
+            transform: translateY(1000px) ;
+        }
+        100% {
+            transform: translateY(-900px) ;
+        }
+    }
+</style>
+
+<html>
+    <div id="man"></div>
+    <div id="cloud1"></div>
+    <div id="cloud2"></div>
+    <div id="cloud3"></div>
+    <div id="cloud4"></div>
+    <div id="cloud5"></div>
+    <div id="cloud6">I sad</div>
+</html>
