@@ -26,106 +26,113 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
   integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+
 <!-- Link to other pages -->
 <link rel="canonical" href="pages/story.html">
-  <div id="photo"></div>
-  <div id="TextArea">
-    <div id="title">Mark McGregor</div>
-    <table>
-      <tr>
-        <td id="aboutButton"><a>About</a></td>
-        <td id="artworkButton"><a>Artwork</a></td>
-        <td id="contactButton"><a>Contact</a></td>
-      </tr>
+
+<body>
+
+  <div id="TitleSection" class="section">
+    <div id="photo"></div>
+    <div id="TextArea">
+      <div class="title">Mark McGregor</div>
+      <table>
+        <tr>
+          <td id="aboutButton"><a>About</a></td>
+          <td id="artworkButton"><a>Artwork</a></td>
+          <td id="contactButton"><a>Contact</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <div id="AboutSection" class="section">
+    <div class="title">About</div>
+    <div id="section1">
+      <div id="portrait"></div>
+      <p id="statement">
+        Hi there! I'm Mark, a full-time student studying Interactive Multimedia Design at Carleton University in Ottawa,
+        Canada.
+      </p>
+    </div>
+    <div id="resume">
+      <div id="s1">
+        <div id="title">Java Developer</div>
+        <div id="location">Trend Micro</div>
+        <div id="time">June-August 2017, June-August 2018</div>
+        <div id="ach"><br>Developed program that reduced cloud-computing costs by ~70%</div>
+      </div>
+      <div id="s2">
+        <div id="title">Barista</div>
+        <div id="location">Equator Coffee Roasters</div>
+        <div id="time">June 2016 - August 2018</div>
+        <div id="ach"><br>Learned and perfected the art of serving quality coffee</div>
+      </div>
+      <div id="s3">
+        <div id="title">Rock Climbing Coach</div>
+        <div id="location">Altitude Gym Kanata</div>
+        <div id="time">September 2018 - Present</div>
+        <div id="ach"><br>Coach classes and perform climbing orientations</div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="ArtworkSection" class="section">
+    <div class="title">Artwork</div>
+    <div id="gallery">
+      <div id="artwork1"></div>
+      <div id="artwork2"></div>
+      <div id="artwork3"></div>
+      <div id="artwork4"></div>
+      <div id="artwork5"></div>
+      <div id="artwork6"></div>
+    </div>
     </table>
   </div>
-</div>
-
-<div id="AboutSection">
-  <div id="title">About</div>
-  <div id="portrait"></div>
-  <p id="statement">
-    Hi there! I'm Mark, a full-time student studying Interactive Multimedia Design at Carleton University in Ottawa,
-    Canada.
-  </p>
-  <div id="resume">
-    <div id="s1">
-      <div id="title">Java Developer</div>
-      <div id="location">Trend Micro</div>
-      <div id="time">June-August 2017, June-August 2018</div>
-      <div id="ach"><br>Developed program that reduced cloud-computing costs by ~70%</div>
-    </div>
-    <div id="s2">
-      <div id="title">Barista</div>
-      <div id="location">Equator Coffee Roasters</div>
-      <div id="time">June 2016 - August 2018</div>
-      <div id="ach"><br>Learned and perfected the art of serving quality coffee</div>
-    </div>
-    <div id="s3">
-      <div id="title">Rock Climbing Coach</div>
-      <div id="location">Altitude Gym Kanata</div>
-      <div id="time">September 2018 - Present</div>
-      <div id="ach"><br>Coach classes and perform climbing orientations</div>
-    </div>
-  </div>
-</div>
-
-<div id="ArtworkSection">
-  <div id="title">Artwork</div>
-  <div id="gallery">
-    <div id="artwork1"></div>
-    <div id="artwork2"></div>
-    <div id="artwork3"></div>
-    <div id="artwork4"></div>
-    <div id="artwork5"></div>
-    <div id="artwork6"></div>
-  </div>
-  </table>
-</div>
-
-<div id="ContactSection">
-  <div id="title">Contact</div>
-
-  <div id="formBox" class="container">
-    <form action="https://mailthis.to/markmcgregor.contact@gmail.com" method="POST" encType="multipart/form-data" netlify>
-      <div class="row mb-4">
-        <div class="col">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Your Name</span>
+  
+  <div id="ContactSection" class="section">
+    <div class="title">Contact</div>
+  
+    <div id="formBox" class="container">
+      <form action="https://mailthis.to/markmcgregor.contact@gmail.com" method="POST" encType="multipart/form-data" netlify>
+        <div class="row mb-4">
+          <div class="col">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Your Name</span>
+              </div>
+              <input type="text" required class="form-control" placeholder="First Last" name="Name">
             </div>
-            <input type="text" required class="form-control" placeholder="First Last" name="Name">
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Email</span>
+              </div>
+              <input type="text" required class="form-control" placeholder="example@gmail.com" name="Reply To">
+            </div>
           </div>
         </div>
-        <div class="col">
+  
+        <div class="row mb-4">
           <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Email</span>
-            </div>
-            <input type="text" required class="form-control" placeholder="example@gmail.com" name="Reply To">
+            <textarea class="form-control" placeholder="Your message" spellcheck="true" rows="10"
+              name="Message">I'd like to get in touch.</textarea>
           </div>
         </div>
-      </div>
-
-      <div class="row mb-4">
-        <div class="input-group">
-          <textarea class="form-control" placeholder="Your message" spellcheck="true" rows="10"
-            name="Message">I'd like to get in touch.</textarea>
+  
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <button type="submit" class="btn-lg btn-outline-dark">Get In Touch</button>
+          </div>
         </div>
-      </div>
-
-      <div class="row justify-content-md-center">
-        <div class="col-md-auto">
-          <button type="submit" class="btn-lg btn-outline-dark">Get In Touch</button>
-        </div>
-      </div>
-
-      <input type="hidden" name="_honeypot" value="">
-      <input type="hidden" name="_confirmation" value="">
-      <input type="hidden" name="_subject" value="Contact Request">
-      <input type="hidden" name="_after" value="https://markmcgregor.net/confirmPage.html">
-    </form>
-  </div>
+  
+        <input type="hidden" name="_honeypot" value="">
+        <input type="hidden" name="_confirmation" value="">
+        <input type="hidden" name="_subject" value="Contact Request">
+        <input type="hidden" name="_after" value="https://markmcgregor.net/confirmPage.html">
+      </form>
+    </div>
 
     <!-- Hit Counter -->
     <div class="hit-counter">
@@ -133,7 +140,7 @@
       <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/574737/t/5"></script>
     </div>
 
-</div>
+  </div>
 </body>
 
 <!-- Anime.js animations -->
