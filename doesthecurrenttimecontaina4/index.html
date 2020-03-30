@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<!-- Include JQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		<!-- Include CSS -->
+		<link rel="stylesheet" type="text/css" href="index.css" />
+	</head>
+
+	<body>
+		<!-- Answer container to hold the text updated by the script -->
+		<div id="answer-container">
+			<!-- text updated by the script -->
+			<h1 id="answer">I don't know.</h1>
+			<h2 id="time">I don't know when you loaded this page.</h2>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		var date = new Date();
+		var time =
+			date.getHours() +
+			':' +
+			(date.getMinutes() < 10 ? '0' : '') +
+			date.getMinutes();
+
+		if (time.toString().includes('4')) {
+			$('#answer').text('Yes.');
+		} else {
+			$('#answer').text('No.');
+		}
+
+		$('#time').text('It was ' + time + ' when you loaded this page');
+	</script>
+</html>

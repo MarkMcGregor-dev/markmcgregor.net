@@ -1,0 +1,28 @@
+body {
+	display: flex;
+	background-color: black;
+}
+
+#answer-container {
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	/* background-color: black; */
+}
+
+#answer-container * {
+	margin: auto;
+	font-family: sans-serif;
+	font-weight: initial;
+	color: white;
+}
+
+#answer {
+	font-size: 10em;
+}
+
+#time {
+	font-style: italic;
+	font-size: 0.8em;
+	color: gray;
+}
