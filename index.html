@@ -15,41 +15,37 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1, shrink-to-fit=no"
 		/>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<!-- Link to CSS -->
+		<link rel="stylesheet" type="text/css" href="home.css" />
+
+		<title>Mark McGregor</title>
+		<link rel="icon" href="resources/home/icon.jpg" />
 	</head>
 
-	<!-- Link to CSS -->
-	<link rel="stylesheet" type="text/css" href="home.css" />
 
-	<title>Mark McGregor</title>
-	<link rel="icon" href="resources/home/icon.jpg" />
+	<body>
+	<h1 id="welcomeTitle">Loading</h1>
+	<p id="welcomeMessage">Loading</p>
 
-	<!-- Fonts Import -->
-	<link
-		href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Play|Oswald|Poppins"
-		rel="stylesheet"
-	/>
+	<script>
+		$(document).ready(function() {
+			$.getJSON("data.json", function(data){
+				$("#welcomeTitle").text(data.welcomeTitle);
+				$("#welcomeMessage").text(data.welcomeMessage);
+			}).fail(function(){
+				console.log("Failed to load welcome text from JSON file.")
+			});
+		});
+	</script>
 
-	<!-- Icons Import -->
-	<link
-		rel="stylesheet"
-		href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-		crossorigin="anonymous"
-	/>
+	</body>
 
-	<!-- Link to other pages -->
-	<link rel="canonical" href="pages/story.html" />
-
-	<body></body>
-
-	<!-- Anime.js animations -->
-	<script src="node_modules/animejs/lib/anime.min.js"></script>
-	<script src="animations.js"></script>
-
-	<!-- IMPORTS -->
-	<script
+	<!-- <script
 		src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"
-	></script>
+	></script> -->
 </html>
