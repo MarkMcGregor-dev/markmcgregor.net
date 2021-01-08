@@ -25,12 +25,23 @@
 		<link rel="icon" href="resources/home/icon.jpg" />
 	</head>
 
-
 	<body>
-	<h1 id="welcomeTitle">Loading</h1>
-	<p id="welcomeMessage">Loading</p>
+		<div class="section" id="welcomeSection">
+			<div id="welcomeTexts">
+				<h1 id="welcomeTitle"></h1>
+				<h2 id="welcomeMessage"></h2>
+			</div>
+		</div>
+
+		<div class="section" id="portfolioSection">
+			<div class="portfolioCard">
+				<div class="portfolioImage"></div>
+				<h2>Portfolio Item Title</h2>
+			</div>
+		</div>
 
 	<script>
+	// Load welcome title and message
 		$(document).ready(function() {
 			$.getJSON("data.json", function(data){
 				$("#welcomeTitle").text(data.welcomeTitle);
@@ -42,10 +53,4 @@
 	</script>
 
 	</body>
-
-	<!-- <script
-		src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"
-	></script> -->
 </html>

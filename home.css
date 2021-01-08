@@ -1,13 +1,44 @@
 body {
+  margin: 0;
   background-color: black;
   color: white;
   font-family: sans-serif;
+
+  width: 100vw;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
 }
 
-h1 {
+.section {
+  padding: 5em;
+  display: flex;
 
+  border: 2px solid red;
 }
 
-p {
+#welcomeSection {
+  height: 80vh;
+  flex: auto;
+  flex-direction: column;
+  justify-content: center;
+}
+#welcomeTexts {
+  flex: 0 1;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  border-radius: 1em;
+  background: rgb(9,9,9);
+  background: linear-gradient(180deg, rgba(5,5,5,1) 0%, rgba(20,20,20,1) 100%);
+  width: 40%;
+  padding: 3%;
+}
+#welcomeSection h2 {
+  font-weight: normal;
+}
 
+.portfolioCard {
+  border: 1px solid red;
 }
