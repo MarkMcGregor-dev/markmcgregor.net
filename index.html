@@ -24,11 +24,44 @@
 		<title>Mark McGregor</title>
 		<link rel="icon" href="resources/home/icon.jpg" />
 
+		<!-- link to fonts -->
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+
+		<!-- link to AFrame -->
+		<script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
 	</head>
 	<body>
-		<script type="module" src="home.js"></script>
+		<script src="home.js"></script>
+
+		<a-scene init-script vr-mode-ui='enabled: false'>
+			<a-camera position='0 0 5' look-controls-enabled='false'></a-camera>
+			<a-box
+				id='box'
+				scale="1.5 1.5 1.5"
+				position='0 0 0'
+				color='white'
+				wireframe='true'
+				animation__rotate='
+					property: rotation;
+					to: 360 360 0;
+					loop: true;
+					dur: 10000;
+					easing: linear;
+				'
+			></a-box>
+
+			<a-entity
+				position="0 -1.75 0"
+				scale="4 4 4"
+				text="
+					align: center;
+					baseline: center;
+					font: dejavu;
+					value: coming soon.;
+				"
+			></a-entity>
+		</a-scene>
 
 		<div style="
 			width: 100%;
