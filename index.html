@@ -23,34 +23,82 @@
 
 		<title>Mark McGregor</title>
 		<link rel="icon" href="resources/home/icon.jpg" />
+
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 	</head>
 
-	<body>
-		<div class="section" id="welcomeSection">
-			<div id="welcomeTexts">
-				<h1 id="welcomeTitle"></h1>
-				<h2 id="welcomeMessage"></h2>
-			</div>
-		</div>
+	<div style="
+		width: 100%;
+		height: 100%;
+		display: flex;
+		position: absolute;
+	">
+		<p style="
+			flex: 0 1 auto;
+			margin: auto;
+			padding-top: 25vh;
+			font-family: 'IBM Plex Mono', monospace;
+			font-weight: normal;
+			"
+		>coming soon.</p>
+	</div>
 
-		<div class="section" id="portfolioSection">
-			<div class="portfolioCard">
-				<div class="portfolioImage"></div>
-				<h2>Portfolio Item Title</h2>
-			</div>
-		</div>
+	<script type="module">
+  import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 
-	<script>
-	// Load welcome title and message
-		$(document).ready(function() {
-			$.getJSON("data.json", function(data){
-				$("#welcomeTitle").text(data.welcomeTitle);
-				$("#welcomeMessage").text(data.welcomeMessage);
-			}).fail(function(){
-				console.log("Failed to load welcome text from JSON file.")
-			});
-		});
-	</script>
+	// create the scene
+  const scene = new THREE.Scene();
+
+	// create a camera
+	const camera = new THREE.PerspectiveCamera(75, window.innerWidth /
+		window.innerHeight, 0.1, 1000);
+
+	const renderer = new THREE.WebGLRenderer();
+	renderer.setSize(window.innerWidth, window.innerHeight);
+	document.body.appendChild(renderer.domElement);
+
+	const geometry = new THREE.BoxGeometry();
+	const wireframe = new THREE.WireframeGeometry(geometry);
+	const line = new THREE.LineSegments(wireframe);
+
+	scene.add(line);
+
+	camera.position.z = 5;
+
+	// create the text
+	const fontLoader = new THREE.FontLoader();
+	const font = fontLoader.load(
+		'resources/fonts/ibmFont.json',
+		function(font) {
+			scene.add(font);
+		}
+	);
+	const textGeo = new THREE.TextGeometry('Coming Soon.', {
+		size: 80,
+		font: font,
+		height: 5,
+		curveSegments: 12
+	});
+	const textWireframe = new THREE.WireframeGeometry(textGeo);
+	const text = new THREE.LineSegments(textWireframe);
+	text.material.depthTest = false;
+	text.material.opacity = 0.5;
+	text.material.transparent = true;
+	scene.add(text);
+
+	const loop = function() {
+		requestAnimationFrame(loop);
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+		line.rotation.x += 0.01;
+		line.rotation.y += 0.01;
+		renderer.render(scene, camera);
+	}
+
+	loop();
+</script>
 
 	</body>
 </html>
