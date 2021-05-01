@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<!-- Required meta tags -->
@@ -34,21 +35,21 @@
 	<body>
 		<script src="home.js"></script>
 
-		<a-scene init-script vr-mode-ui='enabled: false'>
-			<a-camera position='0 0 5' look-controls-enabled='false'></a-camera>
+		<a-scene init-script vr-mode-ui="enabled: false">
+			<a-camera position="0 0 5" look-controls-enabled="false"></a-camera>
 			<a-box
-				id='box'
+				id="box"
 				scale="1.5 1.5 1.5"
-				position='0 0 0'
-				color='white'
-				wireframe='true'
-				animation__rotate='
+				position="0 0 0"
+				color="white"
+				wireframe="true"
+				animation__rotate="
 					property: rotation;
 					to: 360 360 0;
 					loop: true;
 					dur: 10000;
 					easing: linear;
-				'
+				"
 			></a-box>
 
 			<a-entity
