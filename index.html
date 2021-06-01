@@ -33,52 +33,54 @@
 		<script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
 	</head>
 	<body>
-		<script src="home.js"></script>
-
-		<a-scene init-script vr-mode-ui="enabled: false">
-			<a-camera position="0 0 5" look-controls-enabled="false"></a-camera>
-			<a-box
-				id="box"
-				scale="1.5 1.5 1.5"
-				position="0 0 0"
-				color="white"
-				wireframe="true"
-				animation__rotate="
-					property: rotation;
-					to: 360 360 0;
-					loop: true;
-					dur: 10000;
-					easing: linear;
-				"
-			></a-box>
-
-			<a-entity
-				position="0 -1.75 0"
-				scale="4 4 4"
-				text="
-					align: center;
-					baseline: center;
-					font: dejavu;
-					value: coming soon.;
-				"
-			></a-entity>
-		</a-scene>
-
 		<div style="
-			width: 100%;
+			position: absolute;
+			right: 0;
+			width: 50%;
 			height: 100%;
 			display: flex;
-			position: absolute;
+			flex-direction: column;
+			justify-content: center;
+			background-color: rgba(0, 0, 0, 0);
 		">
 			<p style="
-			font-size: 2em;
-				flex: 0 1 auto;
-				margin: auto;
-				padding-top: 30vh;
+				font-size: 3em;
 				font-family: 'IBM Plex Mono', monospace;
 				font-weight: normal;
-				"
-			>coming soon.</p>
+				color: white;
+				margin: 0 20% 0 20%;
+				text-align: center;"
+			>Mark McGregor</p>
+
+			<p style="border-top: 1px solid white; margin: 0 20% 2% 20%;"></p>
+
+			<div style="display: flex; margin: 0 20% 0 20%; justify-content: space-evenly;">
+				<a href="https://www.linkedin.com/in/mark-mcgregor-1225b51b6/" target="_blank">
+					<img src="./resources/home/linkedin_logo.png" style="width: 50px;">
+				</a>
+				<a href="mailto:markmcgregor.contact@gmail.com" target="_blank"><img src="./resources/home/email_icon.png" style="width: 50px;"></a>
+				<a href="https://unsplash.com/@mmcgregor" target="_blank"><img src="./resources/home/unsplash_logo.png" style="width: 50px;"></a>
+			</div>
+		</div>
+
+		<div>
+			<a-scene embedded vr-mode-ui="enabled: false" style="position: absolute; width: 50%; height: 100%; left: 0;">
+				<a-camera position="0 0 5" look-controls-enabled="false" wasd-controls="enabled: false;"></a-camera>
+				<a-box
+					id="box"
+					scale="3 3 3"
+					position="0 0 0"
+					color="white"
+					wireframe="true"
+					animation__rotate="
+						property: rotation;
+						to: 360 360 0;
+						loop: true;
+						dur: 10000;
+						easing: linear;
+					"
+				></a-box>
+			</a-scene>
 		</div>
 	</body>
 </html>
