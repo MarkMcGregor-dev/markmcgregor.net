@@ -30,54 +30,24 @@
 
 		<!-- link to AFrame -->
 		<script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+
+		<!-- Import components -->
+		<script type="module" src="/scripts/components/custom-camera.js"></script>
+		<script src="/scripts/home.js"></script>
 	</head>
 	<body>
-		<script src="home.js"></script>
+		<a-scene fog stats vr-mode-ui="enabled: false">
+			<a-assets>
+				<a-asset-item id="contraption-model" src="./resources/home/assets/contraption.glb"></a-asset-item>
+			</a-assets>
 
-		<a-scene init-script vr-mode-ui='enabled: false'>
-			<a-camera position='0 0 5' look-controls-enabled='false'></a-camera>
-			<a-box
-				id='box'
-				scale="1.5 1.5 1.5"
-				position='0 0 0'
-				color='white'
-				wireframe='true'
-				animation__rotate='
-					property: rotation;
-					to: 360 360 0;
-					loop: true;
-					dur: 10000;
-					easing: linear;
-				'
-			></a-box>
-
-			<a-entity
-				position="0 -1.75 0"
-				scale="4 4 4"
-				text="
-					align: center;
-					baseline: center;
-					font: dejavu;
-					value: coming soon.;
-				"
-			></a-entity>
+			<a-entity>
+				<a-camera custom-camera="baseRotation: -15 -45 0" id="camera"
+				position="0 0 15"
+				fov="45"
+				look-controls-enabled="false"></a-camera>
+			</a-entity>
+			<a-entity gltf-model="#contraption-model"></a-entity>
 		</a-scene>
-
-		<div style="
-			width: 100%;
-			height: 100%;
-			display: flex;
-			position: absolute;
-		">
-			<p style="
-			font-size: 2em;
-				flex: 0 1 auto;
-				margin: auto;
-				padding-top: 30vh;
-				font-family: 'IBM Plex Mono', monospace;
-				font-weight: normal;
-				"
-			>coming soon.</p>
-		</div>
 	</body>
 </html>
