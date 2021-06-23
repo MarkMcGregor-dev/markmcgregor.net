@@ -4,3 +4,41 @@ body {
   font-family: sans-serif;
   margin: 0;
 }
+
+#main-div {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#aframe-scene {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 0;
+}
+
+@media only screen and (max-aspect-ratio: 10/7) {
+  #main-div {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  #aframe-scene {
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    top: 0;
+  }
+}
