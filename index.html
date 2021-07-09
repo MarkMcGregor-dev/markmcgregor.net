@@ -37,18 +37,29 @@
 		<script src="/scripts/home.js"></script>
 	</head>
 	<body>
-		<a-scene fog stats vr-mode-ui="enabled: false">
+		<a-scene fog="type: linear; far: 400; color: #fff" stats vr-mode-ui="enabled: false">
 			<a-assets>
-				<a-asset-item id="contraption-model" src="./resources/home/assets/contraption.glb"></a-asset-item>
+				<a-asset-item id="contraption-body" src="./resources/home/assets/ContraptionBody.glb"></a-asset-item>
+				<a-asset-item id="contraption-text" src="./resources/home/assets/contraption-text.glb"></a-asset-item>
 			</a-assets>
+
+			<!-- Red directional light shining from the top left. -->
+			<a-light color="white" intensity="2" position="10 10 10"></a-light>
+
+			<!-- Blue point light, 5 meters in the air. -->
+			<a-light type="point" intensity="2" color="white" position="-3 10 10"></a-light>
+
+			<!-- Dim ambient lighting. -->
+			<a-light type="ambient" color="#222" intensity="50"></a-light>
 
 			<a-entity>
 				<a-camera custom-camera="baseRotation: -15 -45 0" id="camera"
-				position="0 0 15"
+				position="0 5 30"
 				fov="45"
 				look-controls-enabled="false"></a-camera>
 			</a-entity>
-			<a-entity gltf-model="#contraption-model"></a-entity>
+			<a-entity gltf-model="#contraption-body"></a-entity>
+			<a-entity gltf-model="#contraption-text"></a-entity>
 		</a-scene>
 	</body>
 </html>
