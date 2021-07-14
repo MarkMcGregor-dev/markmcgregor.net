@@ -2,20 +2,54 @@ import * as utils from "../utils.js";
 
 AFRAME.registerComponent('custom-camera', {
   schema: {
-    baseRotation: {type: 'vec3'}
+    baseRotation: {type: 'vec3'},
+    activeRotation: {type: 'vec3'}
   },
 
   init: function () {
     const self = this;
+    const el = this.el;
+
+    // set the initial rotation
+    self.data.activeRotation = self.data.baseRotation;
+
+    // set can switch target
+    self.canSwitchTarget = true;
 
     // update the parent's rotation
-    self.el.parentElement.setAttribute('rotation', self.data.baseRotation);
+    el.parentElement.setAttribute('rotation', self.data.baseRotation);
+
+    // set the starting location of the camera
+    el.setAttribute('position', '0 5 30');
 
     // add an event listener to the body for mouse movement
     document.body.addEventListener("mousemove", (event) => {
       self.mouseX = event.pageX;
       self.mouseY = event.pageY;
     }, false);
+
+    // add an event listener for switching camera targets
+    el.addEventListener('switchTarget', (event) => {
+      // first ensure that the camera is not already locked into a target
+      if (self.canSwitchTarget) {
+        // move the camera to the target location and rotate to face it
+        el.parentElement.setAttribute('position', event.detail.targetPosition);
+        el.setAttribute('position', `0 0 ${event.detail.targetCameraDistance}`);
+        self.data.activeRotation = event.detail.targetRotation;
+
+        // disable switching targets until reset
+        self.canSwitchTarget = false;
+        console.log(`Switching camera to ${event.detail.targetName}`);
+      }
+    });
+    el.addEventListener('resetTarget', () => {
+      // move the camera to the base location and rotation
+      el.setAttribute('position', '0 5 30');
+      el.setAttribute('rotation', self.data.baseRotation);
+
+      // enable switching targets
+      self.canSwitchTarget = true;
+    });
   },
 
   tick: function () {
@@ -27,8 +61,8 @@ AFRAME.registerComponent('custom-camera', {
       ? this.mouseY / window.innerHeight
       : 0.5;
 
-    let baseRotX = this.data.baseRotation.x;
-    let baseRotY = this.data.baseRotation.y;
+    let baseRotX = this.data.activeRotation.x;
+    let baseRotY = this.data.activeRotation.y;
 
     const rotationConst = 10;
     let desiredRotationXRaw = utils.lerp(baseRotX + rotationConst,
