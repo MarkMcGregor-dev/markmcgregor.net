@@ -38,12 +38,11 @@
 		<script src="/scripts/home.js"></script>
 	</head>
 	<body>
-		<a-scene fog="type: linear; far: 400; color: #fff" vr-mode-ui="enabled: false" cursor="rayOrigin: mouse">
+		<a-scene stats fog="type: linear; far: 400; color: #fff" vr-mode-ui="enabled: false" cursor="rayOrigin: mouse">
 			<a-assets>
 				<a-asset-item id="contraption-body" src="./resources/home/assets/ContraptionBody.glb"></a-asset-item>
 				<a-asset-item id="contraption-text" src="./resources/home/assets/contraption-text.glb"></a-asset-item>
 			</a-assets>
-<!--  -->
 			<a-entity id="lighting-group">
 				<!-- Red directional light shining from the top left. -->
 				<a-light color="white" intensity="2" position="10 10 10"></a-light>
