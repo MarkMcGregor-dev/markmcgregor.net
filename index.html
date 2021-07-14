@@ -29,37 +29,47 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 
-		<!-- link to AFrame -->
+		<!-- External imports -->
 		<script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+		<script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
 
 		<!-- Import components -->
 		<script type="module" src="/scripts/components/custom-camera.js"></script>
+		<script type="module" src="/scripts/components/camera-switch-volume.js"></script>
 		<script src="/scripts/home.js"></script>
 	</head>
 	<body>
-		<a-scene fog="type: linear; far: 400; color: #fff" stats vr-mode-ui="enabled: false">
+		<a-scene fog="type: linear; far: 400; color: #fff" stats vr-mode-ui="enabled: false" cursor="rayOrigin: mouse">
 			<a-assets>
 				<a-asset-item id="contraption-body" src="./resources/home/assets/ContraptionBody.glb"></a-asset-item>
 				<a-asset-item id="contraption-text" src="./resources/home/assets/contraption-text.glb"></a-asset-item>
 			</a-assets>
 
-			<!-- Red directional light shining from the top left. -->
-			<a-light color="white" intensity="2" position="10 10 10"></a-light>
+			<a-entity id="lighting-group">
+				<!-- Red directional light shining from the top left. -->
+				<a-light color="white" intensity="2" position="10 10 10"></a-light>
 
-			<!-- Blue point light, 5 meters in the air. -->
-			<a-light type="point" intensity="2" color="white" position="-3 10 10"></a-light>
+				<!-- Blue point light, 5 meters in the air. -->
+				<a-light type="point" intensity="2" color="white" position="-3 10 10"></a-light>
 
-			<!-- Dim ambient lighting. -->
-			<a-light type="ambient" color="#222" intensity="50"></a-light>
+				<!-- Dim ambient lighting. -->
+				<a-light type="ambient" color="#222" intensity="50"></a-light>
+			</a-entity>
 
-			<a-entity>
+			<a-entity id="camera-group">
 				<a-camera custom-camera="baseRotation: -15 -45 0" id="camera"
 				position="0 5 30"
 				fov="45"
 				look-controls-enabled="false"></a-camera>
 			</a-entity>
-			<a-entity gltf-model="#contraption-body"></a-entity>
-			<a-entity gltf-model="#contraption-text"></a-entity>
+
+			<a-entity id="environmment-group">
+				<a-entity camera-switch-volume="debug: true" position="0.75 0 3.2" scale="6 5 1"></a-entity>
+				<a-entity camera-switch-volume="debug: true" position="-0.4 7.3 -4.4" scale="1 4 5"></a-entity>
+
+				<a-entity gltf-model="#contraption-body"></a-entity>
+				<a-entity gltf-model="#contraption-text"></a-entity>
+			</a-entity>
 		</a-scene>
 	</body>
 </html>
