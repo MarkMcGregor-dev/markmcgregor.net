@@ -35,6 +35,7 @@ AFRAME.registerComponent('custom-camera', {
         // move the camera to the target location and rotate to face it
         el.parentElement.setAttribute('position', event.detail.targetPosition);
         el.setAttribute('position', `0 0 ${event.detail.targetCameraDistance}`);
+        el.parentElement.setAttribute('rotation', event.detail.targetRotation);
         self.data.activeRotation = event.detail.targetRotation;
 
         // disable switching targets until reset
@@ -46,6 +47,7 @@ AFRAME.registerComponent('custom-camera', {
       // move the camera to the base location and rotation
       el.setAttribute('position', '0 5 30');
       el.setAttribute('rotation', self.data.baseRotation);
+      self.data.activeRotation = self.data.baseRotation;
 
       // enable switching targets
       self.canSwitchTarget = true;
@@ -53,27 +55,29 @@ AFRAME.registerComponent('custom-camera', {
   },
 
   tick: function () {
-    // Create local variables for mouse position
-    let mouseX = this.mouseX != undefined
+    if (this.canSwitchTarget) {
+      // Create local variables for mouse position
+      let mouseX = this.mouseX != undefined
       ? this.mouseX / window.innerWidth
       : 0.5;
-    let mouseY = this.mouseY != undefined
+      let mouseY = this.mouseY != undefined
       ? this.mouseY / window.innerHeight
       : 0.5;
 
-    let baseRotX = this.data.activeRotation.x;
-    let baseRotY = this.data.activeRotation.y;
+      let baseRotX = this.data.activeRotation.x;
+      let baseRotY = this.data.activeRotation.y;
 
-    const rotationConst = 10;
-    let desiredRotationXRaw = utils.lerp(baseRotX + rotationConst,
-      baseRotX - rotationConst, mouseY);
-    let desiredRotationYRaw = utils.lerp(baseRotY + rotationConst,
-      baseRotY - rotationConst, mouseX);
+      const rotationConst = 10;
+      let desiredRotationXRaw = utils.lerp(baseRotX + rotationConst,
+        baseRotX - rotationConst, mouseY);
+        let desiredRotationYRaw = utils.lerp(baseRotY + rotationConst,
+          baseRotY - rotationConst, mouseX);
 
-    // Adjust the camera according to the mouse position
-    this.el.parentElement.setAttribute("rotation", {
-      x: desiredRotationXRaw,
-      y: desiredRotationYRaw,
-      z: 0});
+          // Adjust the camera according to the mouse position
+          this.el.parentElement.setAttribute("rotation", {
+            x: desiredRotationXRaw,
+            y: desiredRotationYRaw,
+            z: 0});
+    }
   },
 });
