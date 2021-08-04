@@ -34,12 +34,14 @@ AFRAME.registerComponent('custom-camera', {
       if (self.canSwitchTarget) {
         // move the camera to the target location and rotate to face it
         el.parentElement.setAttribute('position', event.detail.targetPosition);
-        el.setAttribute('position', `0 0 ${event.detail.targetCameraDistance}`);
+        el.setAttribute('position',
+          `0 0 ${event.detail.targetCameraDistance}`);
         el.parentElement.setAttribute('rotation', event.detail.targetRotation);
         self.data.activeRotation = event.detail.targetRotation;
 
         // disable switching targets until reset
-        self.canSwitchTarget = false;
+        self.setSwitchingEnabled(false);
+
         console.log(`Switching camera to ${event.detail.targetName}`);
       }
     });
@@ -50,7 +52,9 @@ AFRAME.registerComponent('custom-camera', {
       self.data.activeRotation = self.data.baseRotation;
 
       // enable switching targets
-      self.canSwitchTarget = true;
+      self.setSwitchingEnabled(true);
+
+      console.log('Resetting camera');
     });
   },
 
@@ -80,4 +84,12 @@ AFRAME.registerComponent('custom-camera', {
             z: 0});
     }
   },
+  setSwitchingEnabled: function (switchingEnabled) {
+    // get all targets
+    var targets = document.querySelectorAll('[camera-switch-volume]');
+    targets.forEach(target => {
+      target.setAttribute('visible', switchingEnabled);
+    });
+    this.canSwitchTarget = switchingEnabled;
+  }
 });
