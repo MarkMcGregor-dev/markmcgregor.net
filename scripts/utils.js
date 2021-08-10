@@ -34,3 +34,14 @@ export function setUrlParameter(key, value) {
   url.searchParams.set(key, value);
   window.history.pushState({path: url.href}, '', url.href);
 };
+
+export function urlExists(url) {
+  if (url == undefined || url == null || url == "") {
+    return false;
+  } else {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status!=404;
+  }
+};

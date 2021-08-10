@@ -34,12 +34,15 @@
 		<script src="https://supereggbert.github.io/aframe-htmlembed-component/dist/build.js"></script>
 
 		<!-- Import components -->
+		<script type="module" src="./scripts/components/UI/portfolio-body.js"></script>
+		<script type="module" src="./scripts/components/UI/portfolio-list.js"></script>
+		<script type="module" src="./scripts/components/UI/portfolio-list-item.js"></script>
 		<script type="module" src="/scripts/components/custom-camera.js"></script>
 		<script type="module" src="/scripts/components/camera-switch-volume.js"></script>
 		<script type="module" src="/scripts/home.js"></script>
 	</head>
 	<body>
-		<a-scene fog="type: linear; far: 400; color: #fff" vr-mode-ui="enabled: false" cursor="rayOrigin: mouse" raycaster="far: 50; objects: .clickable;">
+		<a-scene fog="type: linear; far: 400; color: #fff" vr-mode-ui="enabled: false" cursor="rayOrigin: mouse" raycaster="objects: .clickable;">
 			<a-assets>
 				<a-asset-item id="contraption-body" src="./resources/home/assets/ContraptionBody.glb"></a-asset-item>
 				<a-asset-item id="contraption-text" src="./resources/home/assets/contraption-text.glb"></a-asset-item>
@@ -58,29 +61,34 @@
 			<a-entity id="camera-group">
 				<a-camera custom-camera="baseRotation: -15 -45 0" id="camera"
 				fov="45"
-				look-controls-enabled="false"></a-camera>
+				look-controls-enabled="false" wasd-controls="enabled: false;"></a-camera>
 			</a-entity>
 
 			<a-entity id="interactables-group">
 				<a-entity id="portfolio-screen" htmlembed position="-0.125 7.26 -4.5" rotation="0 -90 0">
-					<div id="portfolio-body" style="width: 1160px; height: 890px; display: flex; overflow: hidden;">
-						<div onclick="resetCamera()" id="exit-button" style="color: white; position: absolute; top: 3%; right: 3%; width: 300px; height: 100px; background-color: rgb(50, 50, 50); display: flex; transform: translate(50%, -50%) rotate(45deg)">
-							<h1 style="margin: auto auto 10px auto">EXIT</h1>
+					<div class="portfolio-body">
+						<div onclick="resetCamera()" class="exit-button">
+							<h1 class="exit-button-text">EXIT</h1>
 						</div>
 
 						<!-- <div style="width: 99%; height: 99%; border: 3px solid red; position: absolute;"></div> -->
-						<div id="side-menu" style="background-color: grey; width: 20%; display: flex; flex-direction: column; margin-right: 10px; overflow-y: auto;"></div>
-						<div id="project-body" style="flex: auto; flex: 1 0 20%; display: flex; flex-direction: column; margin-left: 10px;">
-							<div id="project-header" style="background-color: gray; flex: 1 0 50%; margin-bottom: 10px;"></div>
-							<div id="project-footer" style="background-color: gray; flex: 1 0 50%; margin-top: 10px; display: flex; flex-direction: row;">
-								<div id="project-footer-text" style="background-color: black; flex: 0 0 82.5%; margin-right: 10px; padding-left: 20px;">
-									<h1 style="font-size: 45px; height: fit-content; padding: 0%; margin: 10px 0 10px 0;">Project Name - Full Title</h1>
-									<p style="font-size: 32px; margin: 0;">     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porta vestibulum, vel ultrices aliquam eu rhoncus. Tellus diam enim dui, urna, elementum. Tincidunt sit consequat sed est. Ut pellentesque ut aenean sed.
+						<div class="side-menu">
+							<a-entity portfolio-list></a-entity>
+						</div>
+						<a-entity portfolio-body></a-entity>
+						<!-- <div class="project-body">
+							<div class="project-header">
+							</div>
+
+							<div class="project-footer">
+								<div class="project-footer-text">
+									<h1 class="project-footer-text-header">Project Name - Full Title</h1>
+									<p>     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porta vestibulum, vel ultrices aliquam eu rhoncus. Tellus diam enim dui, urna, elementum. Tincidunt sit consequat sed est. Ut pellentesque ut aenean sed.
 											Ac lacus facilisis fermentum id elementum ipsum sit elementum. Dignissim a nunc at quam tellus. Aenean commodo, tincidunt nullam lacus. Massa ut vitae proin pharetra netus. </p>
 								</div>
-								<div id="project-footer-links" style="background-color: black; flex: 1 0 auto; margin-left: 10px;"></div>
+								<div class="project-footer-links"></div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</a-entity>
 			</a-entity>

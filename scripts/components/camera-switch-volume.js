@@ -1,5 +1,4 @@
 import * as utils from '../utils.js';
-import * as data from '../../data.json' assert{type: "json"};
 
 // Creates an invisible volume that can be clicked to center the camera in
 // front of it
@@ -11,8 +10,6 @@ AFRAME.registerComponent('camera-switch-volume', {
     active: {type: 'boolean', default: false}
   },
   init: function() {
-    console.log(data.default.projects);
-
     const self = this;
     const el = this.el;
 
@@ -35,11 +32,11 @@ AFRAME.registerComponent('camera-switch-volume', {
     }
 
     // set up click event listeners
-    el.addEventListener('click', function (evt) {
+    el.addEventListener('click', function () {
       // trigger the zone with animations
       self.triggerZone(true, true);
     });
-    el.addEventListener('disengage', function (evt) {
+    el.addEventListener('disengage', function () {
       self.data.active = false;
     });
   },
